@@ -23,7 +23,7 @@ export default function StaffPage() {
 
   return (
     <>
-      <PageIntro eyebrowNumber="—" eyebrow="Staff" title="スタッフ紹介" titleEn="Our Staff" />
+      <PageIntro eyebrow="Staff" title="スタッフ紹介" titleEn="Our Staff" />
       <Container className="pb-24 sm:pb-32">
         {confirmedStaff.length > 0 ? (
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">

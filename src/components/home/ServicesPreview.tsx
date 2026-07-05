@@ -1,57 +1,34 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { RevealImage } from "@/components/ui/RevealImage";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { placeholderImages } from "@/lib/placeholderImages";
+import { LinkButton } from "@/components/ui/Button";
 import { serviceCategories } from "@/lib/siteConfig";
 
-const preview = [
-  {
-    category: serviceCategories.find((c) => c.id === "facial")!,
-    image: placeholderImages.facialHands,
-    alt: "フェイシャル施術の手元（準備中）",
-  },
-  {
-    category: serviceCategories.find((c) => c.id === "body")!,
-    image: placeholderImages.bodyHands,
-    alt: "ボディ施術の手元（準備中）",
-  },
-];
-
+/**
+ * サービス内容は pending のため、確定情報であるかのような写真カードは置かない。
+ * 変更禁止原稿からわかる範囲（フェイシャル＆ボディのプログラムを行うこと）と、
+ * カテゴリ名だけを、静かなリストとして示す。
+ */
 export function ServicesPreview() {
   return (
-    <section className="bg-warm-ivory py-24 sm:py-32">
+    <section className="bg-warm-ivory py-20 sm:py-24">
       <Container>
         <SectionHeading
-          eyebrowNumber="02"
           eyebrow="Service"
-          title="フェイシャル ＆ ボディ"
-          titleEn="Facial & Body"
+          title="フェイシャル＆ボディのプログラム"
+          description="お一人おひとりの肌診断の結果に基づき、ボディ＆フェイシャルのプログラムを組み立てます。内容の詳細は、店舗の完成に合わせて公開してまいります。"
         />
 
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 sm:gap-8">
-          {preview.map(({ category, image, alt }) => (
-            <Link key={category.id} href="/service" className="group block">
-              <RevealImage>
-                <PlaceholderImage spec={image} alt={alt} className="w-full" />
-              </RevealImage>
-              <div className="mt-6 flex items-start justify-between gap-4">
-                <div>
-                  <p className="font-serif-en text-sm tracking-[0.15em] text-forest/70 italic">
-                    {category.nameEn}
-                  </p>
-                  <h3 className="mt-1 font-serif-jp text-xl text-ink">{category.nameJa}</h3>
-                </div>
-                <ArrowRight
-                  aria-hidden
-                  className="mt-1 h-5 w-5 shrink-0 text-ink transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </div>
-            </Link>
+        <ul className="mt-10 flex flex-wrap gap-x-10 gap-y-3">
+          {serviceCategories.map((category) => (
+            <li key={category.id} className="font-serif-jp text-lg text-ink/80">
+              {category.nameJa}
+            </li>
           ))}
-        </div>
+        </ul>
+
+        <LinkButton href="/service" variant="ghost" className="mt-10">
+          サービスについて
+        </LinkButton>
       </Container>
     </section>
   );

@@ -5,9 +5,10 @@ import { siteConfig, INTERNAL_BASE_URL } from "@/lib/siteConfig";
 import { isLiveStage, assertLiveReadiness } from "@/lib/siteStage";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { MobileFixedReserve } from "@/components/layout/MobileFixedReserve";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
-import { Loader } from "@/components/ui/Loader";
 import { StructuredData } from "@/components/seo/StructuredData";
+import { isReservationReady } from "@/lib/reservation";
 import {
   GoogleTagManagerHead,
   GoogleTagManagerBody,
@@ -56,11 +57,13 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-warm-ivory text-ink">
         <GoogleTagManagerBody />
         <StructuredData />
-        <Loader />
         <ScrollProgress />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className={`flex-1 ${isReservationReady() ? "pb-[52px] lg:pb-0" : ""}`}>
+          {children}
+        </main>
         <Footer />
+        <MobileFixedReserve />
       </body>
     </html>
   );

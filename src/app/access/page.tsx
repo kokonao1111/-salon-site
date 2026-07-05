@@ -12,7 +12,7 @@ export const metadata: Metadata = buildMetadata({
 export default function AccessPage() {
   return (
     <>
-      <PageIntro eyebrowNumber="—" eyebrow="Access" title="アクセス" titleEn="Access" />
+      <PageIntro eyebrow="Access" title="アクセス" titleEn="Access" />
       <AccessInfo />
     </>
   );

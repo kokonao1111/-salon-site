@@ -24,7 +24,6 @@ export default function MenuPage() {
   return (
     <>
       <PageIntro
-        eyebrowNumber="—"
         eyebrow="Menu"
         title="メニュー・料金"
         titleEn="Menu & Price"

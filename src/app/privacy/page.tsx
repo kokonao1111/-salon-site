@@ -12,7 +12,7 @@ export const metadata: Metadata = buildMetadata({
 export default function PrivacyPage() {
   return (
     <>
-      <PageIntro eyebrowNumber="—" eyebrow="Privacy" title="プライバシーポリシー" titleEn="Privacy Policy" />
+      <PageIntro eyebrow="Privacy" title="プライバシーポリシー" titleEn="Privacy Policy" />
       <PrivacyContent />
     </>
   );

@@ -14,7 +14,7 @@ export const metadata: Metadata = buildMetadata({
 export default function ConceptPage() {
   return (
     <>
-      <PageIntro eyebrowNumber="—" eyebrow="Concept" title="コンセプト" titleEn="Our Philosophy" />
+      <PageIntro eyebrow="Concept" title="コンセプト" titleEn="Our Philosophy" />
       <ConceptManuscript />
       <ConceptSupplement />
     </>

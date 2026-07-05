@@ -49,17 +49,21 @@ export function Header() {
           </Link>
 
           <nav aria-label="メインナビゲーション" className="hidden items-center gap-8 lg:flex">
-            {primaryNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm tracking-[0.05em] transition-colors hover:opacity-70 ${
-                  transparent ? "text-soft-white" : "text-ink"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {primaryNav.map((item) => {
+              const isCurrent = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isCurrent ? "page" : undefined}
+                  className={`text-sm tracking-[0.03em] transition-colors hover:opacity-70 ${
+                    isCurrent ? "underline underline-offset-4" : ""
+                  } ${transparent ? "text-soft-white" : "text-ink"}`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <Link
               href={reserveNav.href}
               className={`border px-5 py-2 text-sm tracking-[0.05em] transition-colors ${
@@ -77,7 +81,7 @@ export function Header() {
             onClick={() => setMenuOpen(true)}
             aria-label="メニューを開く"
             aria-expanded={menuOpen}
-            className={`flex h-10 w-10 items-center justify-center lg:hidden ${
+            className={`-mr-2.5 flex h-11 w-11 items-center justify-center lg:hidden ${
               transparent ? "text-soft-white" : "text-ink"
             }`}
           >
@@ -86,7 +90,7 @@ export function Header() {
         </Container>
       </header>
 
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} currentPath={pathname} />
     </>
   );
 }

@@ -1,6 +1,5 @@
 interface SectionHeadingProps {
   eyebrow?: string;
-  eyebrowNumber?: string;
   title: string;
   titleEn?: string;
   description?: string;
@@ -8,9 +7,13 @@ interface SectionHeadingProps {
   tone?: "dark" | "light";
 }
 
+/**
+ * 全セクションで同一の「番号+罫線+英字eyebrow」を反復しない。
+ * eyebrowNumberは廃止し、番号が本当に意味を持つ場所（First Visitの来店フロー等）
+ * だけで個別に組む。金色はここでは使わず、控えめな階調のみで差をつける。
+ */
 export function SectionHeading({
   eyebrow,
-  eyebrowNumber,
   title,
   titleEn,
   description,
@@ -22,19 +25,17 @@ export function SectionHeading({
 
   return (
     <div className={isCenter ? "text-center" : "text-left"}>
-      {(eyebrow || eyebrowNumber) && (
-        <div
-          className={`mb-4 flex items-center gap-3 font-serif-en text-sm tracking-[0.28em] uppercase ${
-            isLight ? "text-pearl" : "text-gold"
-          } ${isCenter ? "justify-center" : "justify-start"}`}
+      {eyebrow && (
+        <p
+          className={`mb-3 font-serif-en text-xs tracking-[0.1em] uppercase ${
+            isLight ? "text-pearl/80" : "text-forest/55"
+          }`}
         >
-          {eyebrowNumber && <span className="text-base">{eyebrowNumber}</span>}
-          <span aria-hidden className="h-px w-8 bg-current opacity-60" />
-          {eyebrow && <span>{eyebrow}</span>}
-        </div>
+          {eyebrow}
+        </p>
       )}
       <h2
-        className={`text-balance font-serif-jp text-3xl leading-snug sm:text-4xl lg:text-[2.75rem] ${
+        className={`text-balance font-serif-jp text-3xl leading-snug sm:text-4xl lg:text-[2.6rem] ${
           isLight ? "text-soft-white" : "text-ink"
         }`}
       >
@@ -42,8 +43,8 @@ export function SectionHeading({
       </h2>
       {titleEn && (
         <p
-          className={`mt-2 font-serif-en text-lg tracking-[0.15em] italic ${
-            isLight ? "text-pearl" : "text-forest/70"
+          className={`mt-2 font-serif-en text-base tracking-[0.04em] italic ${
+            isLight ? "text-pearl" : "text-forest/60"
           }`}
         >
           {titleEn}
@@ -51,7 +52,7 @@ export function SectionHeading({
       )}
       {description && (
         <p
-          className={`mt-6 max-w-2xl text-pretty text-base leading-loose ${
+          className={`mt-6 max-w-2xl text-pretty text-[15px] leading-loose ${
             isCenter ? "mx-auto" : ""
           } ${isLight ? "text-pearl" : "text-forest/85"}`}
         >

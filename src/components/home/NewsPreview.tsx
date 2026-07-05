@@ -10,9 +10,9 @@ export function NewsPreview() {
   const latest = newsItems.slice(0, 3);
 
   return (
-    <section className="bg-warm-ivory py-24 sm:py-32">
+    <section className="bg-warm-ivory py-14 sm:py-20">
       <Container>
-        <SectionHeading eyebrowNumber="08" eyebrow="News" title="最新情報" titleEn="Latest" />
+        <SectionHeading eyebrow="News" title="最新情報" />
 
         <ul className="mt-12 divide-y divide-ink/10 border-t border-b border-ink/10">
           {latest.map((item) => (

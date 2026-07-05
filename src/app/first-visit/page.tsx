@@ -22,7 +22,6 @@ export default function FirstVisitPage() {
   return (
     <>
       <PageIntro
-        eyebrowNumber="—"
         eyebrow="First Visit"
         title="初めての方へ"
         titleEn="Your First Visit"

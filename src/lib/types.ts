@@ -45,6 +45,12 @@ export type ServiceCategoryId =
   | "skin-analysis"
   | "counseling";
 
+/**
+ * サービス内容が確定・承認された後は、参考サイトのような
+ * 「悩みから選ぶ」「施術から選ぶ」「初回向け」といった横断的な分類の追加を想定している。
+ * 現段階では中身がないため実装しない（`concerns` / `forFirstVisit` 等のフィールドを
+ * ここに追加し、Serviceページ側にタブやフィルタUIを足す形で拡張できる）。
+ */
 export interface ServiceCategory {
   id: ServiceCategoryId;
   nameEn: string;

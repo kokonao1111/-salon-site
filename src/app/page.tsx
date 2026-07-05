@@ -4,11 +4,8 @@ import { Hero } from "@/components/home/Hero";
 import { ConceptIntro } from "@/components/home/ConceptIntro";
 import { ValueTriad } from "@/components/home/ValueTriad";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
-import { AnalysisFlow } from "@/components/home/AnalysisFlow";
-import { GallerySection } from "@/components/home/GallerySection";
-import { AccessPreview } from "@/components/home/AccessPreview";
-import { ReserveSection } from "@/components/home/ReserveSection";
-import { OpeningInfoPreview } from "@/components/home/OpeningInfoPreview";
+import { SpaceSection } from "@/components/home/SpaceSection";
+import { OpeningAccessSection } from "@/components/home/OpeningAccessSection";
 import { NewsPreview } from "@/components/home/NewsPreview";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -25,11 +22,8 @@ export default function Home() {
       <ConceptIntro />
       <ValueTriad />
       <ServicesPreview />
-      <AnalysisFlow />
-      <GallerySection />
-      <AccessPreview />
-      <ReserveSection />
-      <OpeningInfoPreview />
+      <SpaceSection />
+      <OpeningAccessSection />
       <NewsPreview />
     </>
   );

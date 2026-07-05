@@ -46,19 +46,20 @@
 | `siteConfig.ts` | `seoDefaults`（meta description等） |
 | `siteConfig.ts` | `serviceCategories` の各 `summary` 文（Facial/Body/Skin Analysis/Counseling） |
 | Footer | タグライン「三重県志摩市の別荘地に誕生する、完全プライベート・トータルビューティーサロン。」 |
-| Home / Hero | 「SHIMA PRIVATE BEAUTY SALON」表示、オープン時期表記 |
-| Home / ConceptIntro | 「肌診断に基づくオーダーメイドの施術方針について、コンセプトページで詳しくご紹介しています。」 |
-| Home / ValueTriad | Private / Analysis / Bespoke の説明文3本 |
-| Home / ServicesPreview | 見出し「フェイシャル ＆ ボディ」 |
-| Home / AnalysisFlow | 見出し「肌診断に基づく施術フロー」、案内文 |
-| Home / GallerySection | 見出し「贅沢な個室空間 / A Private Sanctuary」 |
-| Home / AccessPreview | 見出し「志摩という場所 / Shima, Mie」、案内文 |
-| Home / ReserveSection | 「ご予約はLINE・お電話にて承ります。」（LINE・電話とも未確定の間は非表示、代わりに統一の「予約受付開始のお知らせ」を表示） |
+| Home / Hero | オープン時期表記（「OPEN」バッジ）。店舗名の仮称はHeroから削除しHeaderのみに一本化 |
+| Home / ConceptIntro | 見出し「静けさの中で、肌と向き合う時間。」、説明文（原稿の抜粋は行わず、独自の短い招待文に変更） |
+| Home / ValueTriad | 完全プライベート／肌診断／オーダーメイドを1つの文章として繋いだ新しい説明文（旧：3枚のカード文言） |
+| Home / ServicesPreview | 見出し「フェイシャル＆ボディのプログラム」、説明文（写真カードを廃止し、カテゴリ名のみのリストに変更） |
+| Home / SpaceSection | 見出し「贅沢な個室空間」、説明文（旧GallerySectionの4枚グリッドを1枚の大きなビジュアルに変更） |
+| Home / OpeningAccessSection | 「開業に向けた準備の進捗は…」等の案内文（旧OpeningInfoPreview/AccessPreview/ReserveSectionを統合） |
 | `ReserveActions`（共通） | LINE・電話とも未確定時の統一案内「ご予約受付開始のお知らせは、準備が整い次第開業のご案内にてお伝えいたします。」 |
 | Serviceページ | ページ説明文、準備中案内文 |
 | Contactページ | 「ご予約はLINEを優先的にご案内しております。お電話でも承ります。」（同上、未確定の間は非表示） |
 | Opening Information（`/opening`）| ページ説明文、案内文（新設ページ。開業準備スケジュールは確定情報だが、周辺の文章はAI作文） |
 | 404ページ | 見出し・案内文一式 |
+
+> 2026-07-05：デザイン全面再監修に伴い、Home / AnalysisFlow（肌診断に基づく施術フロー）は削除しました。
+> First Visitの未承認内容をHomeに表示していた不具合の修正も兼ねています。
 
 ---
 

@@ -28,7 +28,6 @@ export default function ServicePage() {
   return (
     <>
       <PageIntro
-        eyebrowNumber="—"
         eyebrow="Service"
         title="サービス"
         titleEn="Our Services"

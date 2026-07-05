@@ -47,7 +47,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
         <p className="mt-3 text-sm text-forest/70">おすすめの方：{item.recommendedFor.value}</p>
       )}
       {isConfirmed(item.notes) && (
-        <p className="mt-2 text-xs text-forest/60">{item.notes.value}</p>
+        <p className="mt-2 text-sm text-forest/60">{item.notes.value}</p>
       )}
 
       <LinkButton href="/contact" variant="ghost" className="mt-5">

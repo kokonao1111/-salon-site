@@ -14,7 +14,7 @@ export const metadata: Metadata = buildMetadata({
 export default function NewsPage() {
   return (
     <>
-      <PageIntro eyebrowNumber="—" eyebrow="News" title="お知らせ" titleEn="News" />
+      <PageIntro eyebrow="News" title="お知らせ" titleEn="News" />
       <NewsList />
     </>
   );

@@ -15,7 +15,6 @@ export default function OpeningPage() {
   return (
     <>
       <PageIntro
-        eyebrowNumber="—"
         eyebrow="Opening Information"
         title="開業のご案内"
         titleEn="Opening Information"

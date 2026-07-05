@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata({
 export default function RecruitPage() {
   return (
     <>
-      <PageIntro eyebrowNumber="—" eyebrow="Recruit" title="採用情報" titleEn="Recruit" />
+      <PageIntro eyebrow="Recruit" title="採用情報" titleEn="Recruit" />
       <Container className="pb-24 sm:pb-32">
         <PendingNotice>
           採用情報は現在準備中です。募集条件が確定次第、このページでご案内いたします。

@@ -25,7 +25,7 @@ export function NewsList() {
                   <time dateTime={item.publishedAt} className="font-serif-en text-sm text-forest/70">
                     {item.publishedAt}
                   </time>
-                  <span className="text-xs tracking-[0.1em] text-gold uppercase">
+                  <span className="text-xs tracking-[0.06em] text-forest/60 uppercase">
                     {categoryLabel[item.category] ?? item.category}
                   </span>
                 </div>

@@ -16,7 +16,7 @@ export function ConceptManuscript() {
   return (
     <section className="bg-warm-ivory">
       <Container className="py-24 sm:py-32">
-        <p className="font-serif-en text-sm tracking-[0.28em] text-gold uppercase">Concept</p>
+        <p className="font-serif-en text-xs tracking-[0.1em] text-forest/55 uppercase">Concept</p>
 
         <div className="mt-8 space-y-2">
           {titleBlock.map((line, index) => (

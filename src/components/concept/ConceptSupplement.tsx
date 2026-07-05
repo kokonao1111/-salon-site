@@ -14,12 +14,9 @@ export function ConceptSupplement() {
           {approvedItems.map((item) => (
             <RevealText key={item.id}>
               <div className="border-t border-ink/15 pt-8">
-                <div className="flex items-baseline gap-3">
-                  <span className="font-serif-en text-xl text-gold">{item.eyebrowNumber}</span>
-                  <span className="font-serif-en text-sm tracking-[0.15em] text-forest/60 italic">
-                    {item.titleEn}
-                  </span>
-                </div>
+                <span className="font-serif-en text-sm tracking-[0.06em] text-forest/55 italic">
+                  {item.titleEn}
+                </span>
                 <h3 className="mt-3 font-serif-jp text-2xl text-ink">{item.titleJa}</h3>
                 <p className="mt-4 max-w-md text-sm leading-loose text-forest/80">{item.body}</p>
               </div>

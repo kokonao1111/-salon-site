@@ -292,10 +292,28 @@ src/
   app/            各ページ（App Router）
   components/
     ui/           共通UI（Button, RevealText, PlaceholderImage 等）
-    layout/       Header, Footer, MobileMenu
+    layout/       Header, Footer, MobileMenu, MobileFixedReserve
     home/         Home専用セクション
     concept/      Concept専用セクション
     ...           各ページ専用コンポーネント
     seo/          構造化データ, GTM
-  lib/            siteConfig, 型定義, 各種データファイル
+  lib/            siteConfig, siteStage, pageReadiness, reservation, 型定義, 各種データファイル
 ```
+
+## 17. デザイン方針（2026年デザイン再監修）
+
+初期実装で見られた「AIテンプレート感」（01〜08の連番反復、全セクション同一の余白・グリッド、
+金色eyebrowの多用、汎用グラデーションの並列）を解消するため、Homeを中心に再設計した。
+
+- `eyebrowNumber`（連番）は廃止し、`SectionHeading` から削除。番号が本当に意味を持つ場所
+  （First Visitの来店フロー）だけで個別に組む。
+- 金色は Hero の「OPEN」バッジ、404の数字、ScrollProgressバー等、意図した数箇所のみに限定。
+- セクションごとに余白・構成（文章中心／写真中心／機能中心）を変え、同じリズムの反復を避けた。
+- Home の Loader（円だけのアニメーション）はブランド固有性がないため削除。正式ロゴ確定後に
+  再検討する。
+- Hero は `HeroVisual.tsx` に専用の layered gradient（水面・光・真珠層をイメージ）を実装し、
+  他セクションの汎用プレースホルダー（`mood`）とは別に管理している。
+- Service / First Visit のプレビューは、内容が確定・承認されるまでHomeに表示しない
+  （`pageReadiness` / `isApproved` で判定。過去に未承認内容がHomeに漏れていた不具合を修正）。
+- モバイルは 375px を基準に確認。固定予約バー（`MobileFixedReserve.tsx`）はLINE・電話の
+  いずれかが確定するまで描画しない。MobileMenuにはフォーカストラップと現在地表示を実装。

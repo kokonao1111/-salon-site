@@ -30,7 +30,7 @@ export function ContactInfo() {
         <Container className="max-w-2xl">
           <dl className="space-y-8">
             <div className="border-t border-ink/15 pt-6">
-              <dt className="font-serif-en text-xs tracking-[0.2em] text-forest/60 uppercase">
+              <dt className="font-serif-en text-xs tracking-[0.1em] text-forest/60 uppercase">
                 Business Hours
               </dt>
               <dd className="mt-2 text-base text-ink">
@@ -38,7 +38,7 @@ export function ContactInfo() {
               </dd>
             </div>
             <div className="border-t border-ink/15 pt-6">
-              <dt className="font-serif-en text-xs tracking-[0.2em] text-forest/60 uppercase">
+              <dt className="font-serif-en text-xs tracking-[0.1em] text-forest/60 uppercase">
                 Closed Days
               </dt>
               <dd className="mt-2 text-base text-ink">

@@ -12,7 +12,7 @@ export const metadata: Metadata = buildMetadata({
 export default function ContactPage() {
   return (
     <>
-      <PageIntro eyebrowNumber="—" eyebrow="Reserve" title="ご予約" titleEn="Reserve" />
+      <PageIntro eyebrow="Reserve" title="ご予約" titleEn="Reserve" />
       <ContactInfo />
     </>
   );

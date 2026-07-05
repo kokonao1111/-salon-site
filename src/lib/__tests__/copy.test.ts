@@ -30,4 +30,13 @@ describe("【変更禁止原稿】の完全一致", () => {
   it("冒頭の一文（CONCEPT_TITLE）が原稿の一行目と一致する", () => {
     expect(CONCEPT_TITLE).toBe(ORIGINAL_MANUSCRIPT.split("\n")[0]);
   });
+
+  it("Heroの見出し折り返し（「、」で分割）が原稿を完全に復元できる", () => {
+    // src/components/home/Hero.tsx は表示上の折り返し位置だけを制御するために
+    // CONCEPT_TITLE を「、」で2分割している。句点が1箇所だけであることを保証し、
+    // 分割・再結合しても文字が変化しないことを検証する。
+    const parts = CONCEPT_TITLE.split("、");
+    expect(parts).toHaveLength(2);
+    expect(parts.join("、")).toBe(CONCEPT_TITLE);
+  });
 });

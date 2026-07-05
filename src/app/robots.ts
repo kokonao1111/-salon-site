@@ -11,10 +11,11 @@ export default function robots(): MetadataRoute.Robots {
     };
   }
 
-  const notReadyPaths = ["/staff", "/recruit"];
+  const notReadyPaths = ["/recruit"];
   if (!pageReadiness.service) notReadyPaths.push("/service");
   if (!pageReadiness.menu) notReadyPaths.push("/menu");
   if (!pageReadiness.firstVisit) notReadyPaths.push("/first-visit");
+  if (!pageReadiness.staff) notReadyPaths.push("/staff");
   if (!pageReadiness.news) notReadyPaths.push("/news");
 
   return {

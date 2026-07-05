@@ -12,6 +12,7 @@ const aspectClass: Record<PlaceholderImageSpec["aspect"], string> = {
  * 仮画像のアートディレクション。実写真ではなく、権利処理不要な抽象表現として
  * 「光」「水面」「素材」「機器の精密さ」「体温・手のぬくもり」を、構図ごとに描き分ける。
  * 単調な同一グラデーションの使い回しを避けるための表現の幅。
+ * Hero等、写真の代役を演じさせたくない場所では quiet モードを使うこと。
  */
 const moodBackgrounds: Record<PlaceholderMood, string> = {
   light:
@@ -39,11 +40,18 @@ interface PlaceholderImageProps {
   className?: string;
   /** true の場合、内部の aspect-ratio を持たず親要素いっぱいに広がる（フルビューポートのヒーロー等で使用） */
   fill?: boolean;
+  /**
+   * true の場合、mood別の抽象グラデーションを「写真の代役」として使わず、
+   * 単色＋繊細な質感のみの控えめな表現にする（Hero等、装飾の主張を抑えたい場所用）。
+   */
+  quiet?: boolean;
 }
 
 /**
  * 本番写真が届くまでの仮画像スロット。
  * src を渡すだけで next/image による本番写真に差し替わる構造にしてある。
+ * PC・スマホでそれぞれ異なる object-position（spec.objectPositionPc / objectPositionMobile）を
+ * 指定できるよう、本番写真投入時は2枚のImageを出し分ける。
  * 仮表示であることは data-shot-id / aria-label というコード・アクセシビリティ情報としてのみ持たせ、
  * 「Preparing」等の文字は画面上に表示しない。
  */
@@ -55,6 +63,7 @@ export function PlaceholderImage({
   sizes = "100vw",
   className = "",
   fill = false,
+  quiet = false,
 }: PlaceholderImageProps) {
   return (
     <div
@@ -63,7 +72,35 @@ export function PlaceholderImage({
       className={`relative ${fill ? "h-full w-full" : aspectClass[spec.aspect]} ${className}`}
     >
       {src ? (
-        <Image src={src} alt={alt} fill priority={priority} sizes={sizes} className="object-cover" />
+        <>
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            priority={priority}
+            sizes={sizes}
+            className="object-cover sm:hidden"
+            style={{ objectPosition: spec.objectPositionMobile ?? "center" }}
+          />
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            priority={priority}
+            sizes={sizes}
+            className="hidden object-cover sm:block"
+            style={{ objectPosition: spec.objectPositionPc ?? "center" }}
+          />
+        </>
+      ) : quiet ? (
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-forest"
+          style={{
+            backgroundImage: "radial-gradient(rgba(252,251,248,0.06) 1px, transparent 1px)",
+            backgroundSize: "5px 5px",
+          }}
+        />
       ) : (
         <div
           role="img"

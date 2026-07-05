@@ -33,10 +33,14 @@ export interface PlaceholderImageSpec {
   aspect: ImageAspect;
   /** 仮表示の抽象アートディレクション */
   mood: PlaceholderMood;
-  /** PC表示での想定トリミング */
+  /** PC表示での想定トリミング（メモ・文章） */
   cropPc?: string;
-  /** モバイル表示での想定トリミング */
+  /** モバイル表示での想定トリミング（メモ・文章） */
   cropMobile?: string;
+  /** 本番写真投入後、PC表示で使う CSS object-position（例: "50% 30%"） */
+  objectPositionPc?: string;
+  /** 本番写真投入後、モバイル表示で使う CSS object-position */
+  objectPositionMobile?: string;
 }
 
 export type ServiceCategoryId =

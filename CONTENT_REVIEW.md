@@ -38,28 +38,42 @@
 
 ---
 
-## 🟡 ブランドの語り口に関わるもの
+## 🗑 削除済み：Homeに表示していた未承認の詩的コピー（2026-07-06）
+
+以下は、Homeに常時表示されていた「AIが独自に作文したブランドコピー」です。
+指示に基づき、Homeから完全に削除しました（`isApproved` 管理ではなく、コンポーネントごと削除）。
+再度Homeに掲載する場合も、AIが新しいブランドコピーを作文するのではなく、
+クライアント様から支給された文言を使うか、改めてご確認・ご承認をお願いします。
+
+| 旧コンポーネント（削除済み） | 内容 |
+|---|---|
+| `ConceptIntro.tsx` | 見出し「静けさの中で、肌と向き合う時間。」、説明文「志摩の別荘地に佇む、完全プライベートのサロン。感覚だけに頼らない肌診断と…」 |
+| `ValueTriad.tsx` | 「他のお客様と空間を共にすることのない、完全プライベートの個室で。感覚だけに頼らず、肌診断の結果から…」という1つの連続した文章 |
+| `ServicesPreview.tsx`（Home版） | 見出し「フェイシャル＆ボディのプログラム」、説明文「お一人おひとりの肌診断の結果に基づき、ボディ＆フェイシャルのプログラムを組み立てます。…」 |
+| `SpaceSection.tsx` | 見出し「贅沢な個室空間」に付随する説明文「店舗の完成後、施術室の様子や素材のディテールを順次公開してまいります。」（見出し単体は許容範囲だが、セクションごと一旦削除） |
+| `OpeningAccessSection.tsx` | 「開業に向けた準備の進捗は、開業のご案内ページでご確認いただけます。」等の案内文 |
+
+新しいHomeは、支給原稿の抜粋（`ConceptExcerpt.tsx`）と、住所・オープン予定日等の確定事実のみ
+（`AccessSection.tsx` / `OpeningSection.tsx`）で構成しています。新規に作文した説明文はありません。
+
+---
+
+## 🟡 ブランドの語り口に関わるもの（現存）
 
 | ページ / コンポーネント | 内容 |
 |---|---|
 | `siteConfig.ts` | 店舗名の作業用仮称「志摩 プライベートビューティーサロン / SHIMA PRIVATE BEAUTY SALON」（店舗名確定前の暫定表示） |
 | `siteConfig.ts` | `seoDefaults`（meta description等） |
-| `siteConfig.ts` | `serviceCategories` の各 `summary` 文（Facial/Body/Skin Analysis/Counseling） |
+| `siteConfig.ts` | `serviceCategories` の各 `summary` 文（Facial/Body/Skin Analysis/Counseling。Home非表示、/serviceページのみで使用） |
 | Footer | タグライン「三重県志摩市の別荘地に誕生する、完全プライベート・トータルビューティーサロン。」 |
-| Home / Hero | オープン時期表記（「OPEN」バッジ）。店舗名の仮称はHeroから削除しHeaderのみに一本化 |
-| Home / ConceptIntro | 見出し「静けさの中で、肌と向き合う時間。」、説明文（原稿の抜粋は行わず、独自の短い招待文に変更） |
-| Home / ValueTriad | 完全プライベート／肌診断／オーダーメイドを1つの文章として繋いだ新しい説明文（旧：3枚のカード文言） |
-| Home / ServicesPreview | 見出し「フェイシャル＆ボディのプログラム」、説明文（写真カードを廃止し、カテゴリ名のみのリストに変更） |
-| Home / SpaceSection | 見出し「贅沢な個室空間」、説明文（旧GallerySectionの4枚グリッドを1枚の大きなビジュアルに変更） |
-| Home / OpeningAccessSection | 「開業に向けた準備の進捗は…」等の案内文（旧OpeningInfoPreview/AccessPreview/ReserveSectionを統合） |
 | `ReserveActions`（共通） | LINE・電話とも未確定時の統一案内「ご予約受付開始のお知らせは、準備が整い次第開業のご案内にてお伝えいたします。」 |
 | Serviceページ | ページ説明文、準備中案内文 |
 | Contactページ | 「ご予約はLINEを優先的にご案内しております。お電話でも承ります。」（同上、未確定の間は非表示） |
-| Opening Information（`/opening`）| ページ説明文、案内文（新設ページ。開業準備スケジュールは確定情報だが、周辺の文章はAI作文） |
+| Opening Information（`/opening`）| ページ説明文、案内文（開業準備スケジュールは確定情報だが、周辺の文章はAI作文） |
 | 404ページ | 見出し・案内文一式 |
 
-> 2026-07-05：デザイン全面再監修に伴い、Home / AnalysisFlow（肌診断に基づく施術フロー）は削除しました。
-> First Visitの未承認内容をHomeに表示していた不具合の修正も兼ねています。
+> 2026-07-06：デザイン全面再監修に伴い、SITE_STAGEに応じてHomeの構成自体を分岐させる設計に変更しました。
+> 上記「削除済み」の通り、未承認の詩的コピーはHomeから完全に削除しています。詳細は README「17. デザイン方針」を参照してください。
 
 ---
 

@@ -1,6 +1,3 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import { HeroVisual } from "./HeroVisual";
 import { RevealText } from "@/components/ui/RevealText";
 import { ReserveActions } from "@/components/ui/ReserveActions";
@@ -12,26 +9,21 @@ import { CONCEPT_TITLE } from "@/lib/copy";
 const [TITLE_LEAD, TITLE_TAIL] = CONCEPT_TITLE.split("、");
 
 /**
- * ファーストビュー。
+ * プレオープン期のファーストビュー。
+ * 店舗写真が届くまでは短く控えめにし、巨大な装飾で存在感を演出しない。
  * 予約導線が未確定の間は押せないCTAを置かず、「2026年9月中旬 OPEN」を主役にする。
  * 仮称の店舗名はここには出さない（Headerで既に控えめに表示済みのため、重複させない）。
  */
 export function Hero() {
-  const reduced = useReducedMotion();
   const reservationReady = isReservationReady();
 
   return (
-    <section className="relative flex h-[92svh] min-h-[560px] items-end overflow-hidden">
-      <motion.div
-        className="absolute inset-0"
-        initial={{ scale: 1 }}
-        animate={reduced ? undefined : { scale: 1.06 }}
-        transition={{ duration: 24, ease: "linear" }}
-      >
+    <section className="relative flex min-h-[420px] items-end overflow-hidden py-24 sm:py-32">
+      <div className="absolute inset-0">
         <HeroVisual />
-      </motion.div>
+      </div>
 
-      <div className="relative z-10 w-full px-6 pb-14 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24">
+      <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16">
         <RevealText className="max-w-full lg:max-w-5xl">
           <h1 className="text-balance font-serif-jp text-3xl leading-snug text-soft-white sm:text-5xl lg:text-6xl">
             <span className="whitespace-nowrap">{TITLE_LEAD}、</span>

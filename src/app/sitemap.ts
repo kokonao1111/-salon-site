@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...(pageReadiness.service ? ["/service"] : []),
     ...(pageReadiness.menu ? ["/menu"] : []),
     ...(pageReadiness.firstVisit ? ["/first-visit"] : []),
+    ...(pageReadiness.staff ? ["/staff"] : []),
     ...(pageReadiness.news ? ["/news"] : []),
   ];
 

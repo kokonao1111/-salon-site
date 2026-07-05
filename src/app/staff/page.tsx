@@ -6,6 +6,7 @@ import { PendingNotice } from "@/components/ui/PendingNotice";
 import { StaffCard } from "@/components/staff/StaffCard";
 import { staffMembers } from "@/lib/staff";
 import { isConfirmed } from "@/lib/types";
+import { pageReadiness } from "@/lib/pageReadiness";
 
 /**
  * スタッフ情報・写真の確認が完了するまで本番ナビゲーションには表示しない。
@@ -15,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
   title: "スタッフ紹介",
   description: "志摩の完全プライベートサロンのスタッフをご紹介します。",
   path: "/staff",
-  noIndex: true,
+  noIndex: !pageReadiness.staff,
 });
 
 export default function StaffPage() {

@@ -8,11 +8,13 @@ import { MenuItemCard } from "@/components/menu/MenuItemCard";
 import { menuItems } from "@/lib/menu";
 import { serviceCategories } from "@/lib/siteConfig";
 import { isConfirmed } from "@/lib/types";
+import { pageReadiness } from "@/lib/pageReadiness";
 
 export const metadata: Metadata = buildMetadata({
   title: "メニュー・料金",
   description: "志摩の完全プライベートサロンのメニュー・料金のご案内。現在準備中です。",
   path: "/menu",
+  noIndex: !pageReadiness.menu,
 });
 
 export default function MenuPage() {

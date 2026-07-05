@@ -1,11 +1,33 @@
 import Image, { type StaticImageData } from "next/image";
-import type { PlaceholderImageSpec } from "@/lib/types";
+import type { PlaceholderImageSpec, PlaceholderMood } from "@/lib/types";
 
 const aspectClass: Record<PlaceholderImageSpec["aspect"], string> = {
   portrait: "aspect-[3/4]",
   landscape: "aspect-[4/3]",
   square: "aspect-square",
   wide: "aspect-[16/9]",
+};
+
+/**
+ * 仮画像のアートディレクション。実写真ではなく、権利処理不要な抽象表現として
+ * 「光」「水面」「素材」「機器の精密さ」「体温・手のぬくもり」を、構図ごとに描き分ける。
+ * 単調な同一グラデーションの使い回しを避けるための表現の幅。
+ */
+const moodBackgrounds: Record<PlaceholderMood, string> = {
+  light:
+    "radial-gradient(ellipse at 82% 12%, rgba(255,255,255,0.85), transparent 55%), linear-gradient(160deg, var(--color-pearl) 0%, var(--color-warm-ivory) 55%, var(--color-soft-white) 100%)",
+  water:
+    "repeating-linear-gradient(100deg, rgba(36,51,44,0.05) 0px, rgba(36,51,44,0.05) 1px, transparent 1px, transparent 34px), linear-gradient(180deg, var(--color-soft-white), var(--color-pearl))",
+  material:
+    "radial-gradient(circle at 22% 28%, rgba(164,138,98,0.14), transparent 45%), radial-gradient(circle at 78% 72%, rgba(36,51,44,0.08), transparent 50%), radial-gradient(rgba(23,25,23,0.07) 1px, transparent 1px), var(--color-warm-ivory)",
+  structure:
+    "repeating-linear-gradient(0deg, rgba(23,25,23,0.05) 0, rgba(23,25,23,0.05) 1px, transparent 1px, transparent 26px), repeating-linear-gradient(90deg, rgba(23,25,23,0.05) 0, rgba(23,25,23,0.05) 1px, transparent 1px, transparent 26px), linear-gradient(135deg, var(--color-pearl), var(--color-warm-ivory))",
+  warmth:
+    "radial-gradient(circle at 50% 42%, rgba(164,138,98,0.2), transparent 60%), linear-gradient(160deg, var(--color-warm-ivory), var(--color-pearl))",
+};
+
+const moodBackgroundSize: Partial<Record<PlaceholderMood, string>> = {
+  material: "auto, auto, 6px 6px, auto",
 };
 
 interface PlaceholderImageProps {
@@ -22,8 +44,8 @@ interface PlaceholderImageProps {
 /**
  * 本番写真が届くまでの仮画像スロット。
  * src を渡すだけで next/image による本番写真に差し替わる構造にしてある。
- * 公開画面には「画像を入れてください」等の制作メモは表示せず、
- * 開業準備中である旨のみを上品に示す。
+ * 仮表示であることは data-shot-id / aria-label というコード・アクセシビリティ情報としてのみ持たせ、
+ * 「Preparing」等の文字は画面上に表示しない。
  */
 export function PlaceholderImage({
   spec,
@@ -37,6 +59,7 @@ export function PlaceholderImage({
   return (
     <div
       data-shot-id={spec.shotId}
+      data-placeholder={src ? undefined : "true"}
       className={`relative ${fill ? "h-full w-full" : aspectClass[spec.aspect]} ${className}`}
     >
       {src ? (
@@ -45,20 +68,12 @@ export function PlaceholderImage({
         <div
           role="img"
           aria-label={`${spec.description}（準備中）`}
-          className="absolute inset-0 flex items-end justify-end overflow-hidden bg-gradient-to-br from-pearl/40 via-warm-ivory to-pearl/60 p-4"
-        >
-          <div
-            aria-hidden
-            className="absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(135deg, var(--color-ink) 0px, var(--color-ink) 1px, transparent 1px, transparent 14px)",
-            }}
-          />
-          <span className="relative font-serif-en text-xs tracking-[0.3em] text-ink/45 uppercase">
-            Preparing
-          </span>
-        </div>
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            backgroundImage: moodBackgrounds[spec.mood],
+            backgroundSize: moodBackgroundSize[spec.mood],
+          }}
+        />
       )}
     </div>
   );

@@ -1,7 +1,7 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { PendingNotice } from "@/components/ui/PendingNotice";
 import { newsItems } from "@/lib/news";
-import { siteConfig } from "@/lib/siteConfig";
 
 const categoryLabel: Record<string, string> = {
   preparation: "開業準備",
@@ -9,6 +9,10 @@ const categoryLabel: Record<string, string> = {
   media: "メディア",
 };
 
+/**
+ * 内部の準備工程（店舗リフォーム・機器搬入等）は「お知らせ」として掲載しない。
+ * それらは /opening（開業のご案内）で正直に案内する。ここは承認済みのお知らせのみ表示する。
+ */
 export function NewsList() {
   return (
     <section className="bg-warm-ivory pb-24 sm:pb-32">
@@ -31,22 +35,13 @@ export function NewsList() {
             ))}
           </ul>
         ) : (
-          <>
-            <PendingNotice>
-              現在、公開できるお知らせはございません。オープン準備の進捗は、以下のスケジュールをご参照ください。
-            </PendingNotice>
-            <ul className="mt-8 divide-y divide-ink/10 border-t border-b border-ink/10">
-              {siteConfig.schedule.map((item) => (
-                <li
-                  key={item.label}
-                  className="flex flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:gap-8"
-                >
-                  <span className="font-serif-en text-sm text-forest/70">{item.period}</span>
-                  <span className="text-sm text-ink">{item.label}</span>
-                </li>
-              ))}
-            </ul>
-          </>
+          <PendingNotice>
+            現在、公開できるお知らせはございません。開業に向けた準備状況は
+            <Link href="/opening" className="underline underline-offset-4 hover:opacity-70">
+              開業のご案内
+            </Link>
+            のページでご案内しています。
+          </PendingNotice>
         )}
       </Container>
     </section>

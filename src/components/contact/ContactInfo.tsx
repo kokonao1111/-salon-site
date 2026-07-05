@@ -6,17 +6,22 @@ import { siteConfig } from "@/lib/siteConfig";
 import { isConfirmed } from "@/lib/types";
 
 export function ContactInfo() {
+  const reservationReady =
+    isConfirmed(siteConfig.contact.lineUrl) || isConfirmed(siteConfig.contact.phone);
+
   return (
     <>
       <section className="bg-ink py-20 text-center text-soft-white sm:py-24">
         <Container>
           <p className="font-serif-en text-sm tracking-[0.15em] text-pearl italic">Reserve</p>
           <h2 className="mt-2 font-serif-jp text-2xl sm:text-3xl">ご予約</h2>
-          <p className="mx-auto mt-6 max-w-md text-sm leading-loose text-pearl">
-            ご予約はLINEを優先的にご案内しております。お電話でも承ります。
-          </p>
+          {reservationReady && (
+            <p className="mx-auto mt-6 max-w-md text-sm leading-loose text-pearl">
+              ご予約はLINEを優先的にご案内しております。お電話でも承ります。
+            </p>
+          )}
           <div className="mt-10 flex justify-center">
-            <ReserveActions tone="light" />
+            <ReserveActions tone="light" className={reservationReady ? "" : "mx-auto max-w-md"} />
           </div>
         </Container>
       </section>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { shipporiMincho, notoSansJp, cormorantGaramond } from "@/lib/fonts";
-import { siteConfig } from "@/lib/siteConfig";
+import { cormorantGaramond } from "@/lib/fonts";
+import { siteConfig, INTERNAL_BASE_URL } from "@/lib/siteConfig";
+import { isLiveStage, assertLiveReadiness } from "@/lib/siteStage";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
@@ -12,8 +13,12 @@ import {
   GoogleTagManagerBody,
 } from "@/components/seo/GoogleTagManager";
 
+// live 段階なのに正式店舗名・本番URLが未設定ならビルド自体を止める（モジュール読み込み時に実行）。
+assertLiveReadiness();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
+  // OGP画像等の絶対URL解決にのみ使用する内部基点。canonical/og:urlには使わない。
+  metadataBase: new URL(siteConfig.siteUrl ?? INTERNAL_BASE_URL),
   title: {
     default: siteConfig.seoDefaults.defaultTitle,
     template: siteConfig.seoDefaults.titleTemplate,
@@ -22,11 +27,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteConfig.seoDefaults.defaultTitle,
     description: siteConfig.seoDefaults.description,
-    url: siteConfig.siteUrl,
+    ...(siteConfig.siteUrl ? { url: siteConfig.siteUrl } : {}),
     siteName: siteConfig.brand.workingTitleJa,
     locale: "ja_JP",
     type: "website",
   },
+  robots: isLiveStage
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
   ...(siteConfig.searchConsole.googleSiteVerification
     ? { verification: { google: siteConfig.searchConsole.googleSiteVerification } }
     : {}),
@@ -40,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${shipporiMincho.variable} ${notoSansJp.variable} ${cormorantGaramond.variable} h-full antialiased`}
+      className={`${cormorantGaramond.variable} h-full antialiased`}
     >
       <head>
         <GoogleTagManagerHead />

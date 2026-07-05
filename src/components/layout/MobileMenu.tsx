@@ -5,7 +5,6 @@ import { useEffect, useRef } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
 import { primaryNav, reserveNav } from "@/lib/navigation";
-import { ReserveActions } from "@/components/ui/ReserveActions";
 
 interface MobileMenuProps {
   open: boolean;
@@ -75,11 +74,6 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               </motion.div>
             ))}
           </nav>
-
-          <div className="border-t border-soft-white/20 px-8 py-8 sm:px-14">
-            <p className="mb-4 font-serif-en text-xs tracking-[0.25em] text-pearl uppercase">Reserve</p>
-            <ReserveActions tone="light" />
-          </div>
         </motion.div>
       )}
     </AnimatePresence>

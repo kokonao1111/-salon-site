@@ -6,6 +6,10 @@ import { siteConfig } from "@/lib/siteConfig";
 interface Section {
   title: string;
   body: ReactNode;
+  /**
+   * 公開前に事業者情報の確定・法務確認が必要な項目。
+   * 開発者向けの管理フラグであり、画面には表示しない（詳細は CONTENT_REVIEW.md を参照）。
+   */
   needsLegalReview?: boolean;
 }
 
@@ -14,7 +18,7 @@ const sections: Section[] = [
     title: "1. 事業者情報",
     body: (
       <p>
-        事業者名：確定次第記載いたします（TODO: 正式な店舗名・運営事業者名の確定待ち）
+        事業者名：確定次第記載いたします
         <br />
         所在地：{siteConfig.address.full}
       </p>
@@ -57,7 +61,6 @@ const sections: Section[] = [
         Google アナリティクス（GA4）、Google タグマネージャー、Google 広告のコンバージョン計測タグを利用する場合があります。
         これらのツールは Cookie を使用して匿名の利用状況データを収集しますが、氏名・住所等の個人を特定する情報は含まれません。
         収集されたデータは各サービス提供者のプライバシーポリシーに基づいて管理されます。
-        本サイトでは、実際に発行・設定された計測IDのみを使用し、未発行のIDを記載することはありません。
       </p>
     ),
   },
@@ -99,7 +102,7 @@ const sections: Section[] = [
     title: "10. お問い合わせ窓口",
     body: (
       <p>
-        お問い合わせ窓口は、正式な連絡先（電話番号・LINE）の確定後にご案内いたします。現在準備中です。
+        お問い合わせ窓口は、正式な連絡先の確定後にご案内いたします。
       </p>
     ),
     needsLegalReview: true,
@@ -120,18 +123,18 @@ export function PrivacyContent() {
     <section className="bg-warm-ivory pb-24 sm:pb-32">
       <Container className="max-w-3xl">
         <PendingNotice className="mb-12">
-          本プライバシーポリシーは、事業者情報・連絡先が未確定の段階で作成した仮文書です。
-          正式な事業者情報の確定、および専門家によるリーガルチェックを経て、開業までに正式版を公開いたします。
+          本ページは事業者情報の確定前に作成した案内です。正式な内容は、開業までにあらためて公開いたします。
         </PendingNotice>
 
         <div className="space-y-10">
           {sections.map((section) => (
-            <div key={section.title} className="border-t border-ink/15 pt-6">
+            <div
+              key={section.title}
+              className="border-t border-ink/15 pt-6"
+              data-needs-legal-review={section.needsLegalReview ? "true" : undefined}
+            >
               <h2 className="font-serif-jp text-lg text-ink">{section.title}</h2>
               <div className="mt-3 text-sm leading-loose text-forest/80">{section.body}</div>
-              {section.needsLegalReview && (
-                <p className="mt-3 text-xs text-gold">※ 公開前に事業者情報の確定・法務確認が必要な項目です</p>
-              )}
             </div>
           ))}
         </div>

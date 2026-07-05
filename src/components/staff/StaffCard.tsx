@@ -1,4 +1,5 @@
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { placeholderImages } from "@/lib/placeholderImages";
 import { isConfirmed } from "@/lib/types";
 import type { StaffMember } from "@/lib/types";
 
@@ -12,13 +13,7 @@ export function StaffCard({ staff }: StaffCardProps) {
   return (
     <div>
       <PlaceholderImage
-        spec={
-          photoSpec ?? {
-            shotId: "10-staff-portrait",
-            description: "スタッフの自然なポートレート",
-            aspect: "portrait",
-          }
-        }
+        spec={photoSpec ?? placeholderImages.staffPortrait}
         alt={isConfirmed(staff.name) ? `${staff.name.value}のポートレート` : "スタッフポートレート（準備中）"}
         className="w-full"
       />

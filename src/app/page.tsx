@@ -8,6 +8,7 @@ import { AnalysisFlow } from "@/components/home/AnalysisFlow";
 import { GallerySection } from "@/components/home/GallerySection";
 import { AccessPreview } from "@/components/home/AccessPreview";
 import { ReserveSection } from "@/components/home/ReserveSection";
+import { OpeningInfoPreview } from "@/components/home/OpeningInfoPreview";
 import { NewsPreview } from "@/components/home/NewsPreview";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -28,6 +29,7 @@ export default function Home() {
       <GallerySection />
       <AccessPreview />
       <ReserveSection />
+      <OpeningInfoPreview />
       <NewsPreview />
     </>
   );

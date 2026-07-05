@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 
 const base =
@@ -47,33 +47,5 @@ export function LinkButton({
         />
       )}
     </Link>
-  );
-}
-
-type DisabledButtonProps = CommonProps &
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    reason: string;
-  };
-
-/** リンク先が未確定の予約系CTA用。押せない理由を明示し、# へのリンクは行わない。 */
-export function PendingButton({
-  children,
-  variant = "outline",
-  className = "",
-  reason,
-  ...props
-}: DisabledButtonProps) {
-  return (
-    <button
-      type="button"
-      disabled
-      aria-disabled="true"
-      aria-label={`${children}（${reason}）`}
-      title={reason}
-      className={`${variants[variant]} cursor-not-allowed opacity-50 ${className}`}
-      {...props}
-    >
-      <span>{children}</span>
-    </button>
   );
 }

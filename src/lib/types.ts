@@ -15,6 +15,13 @@ export function isConfirmed<T>(
 export type ImageAspect = "portrait" | "landscape" | "square" | "wide";
 
 /**
+ * 仮画像の抽象的なアートディレクション。単調な同一グラデーションを避け、
+ * 撮影内容の性質に合わせて構図ごとに異なる表現を与えるためのカテゴリ。
+ * 実写真ではなく、権利処理不要なCSS生成の抽象表現であることが前提。
+ */
+export type PlaceholderMood = "light" | "water" | "material" | "structure" | "warmth";
+
+/**
  * 本番写真が納品されるまでの仮画像スロット。
  * 撮影リストの項目 ID と紐づけ、差し替え時に迷わない設計にする。
  */
@@ -24,6 +31,8 @@ export interface PlaceholderImageSpec {
   /** 開発者・クライアント向けの撮影内容メモ */
   description: string;
   aspect: ImageAspect;
+  /** 仮表示の抽象アートディレクション */
+  mood: PlaceholderMood;
   /** PC表示での想定トリミング */
   cropPc?: string;
   /** モバイル表示での想定トリミング */

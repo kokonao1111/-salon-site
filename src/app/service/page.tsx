@@ -7,12 +7,14 @@ import { LinkButton } from "@/components/ui/Button";
 import { ServiceCategoryBlock } from "@/components/service/ServiceCategoryBlock";
 import { serviceCategories } from "@/lib/siteConfig";
 import { placeholderImages } from "@/lib/placeholderImages";
+import { pageReadiness } from "@/lib/pageReadiness";
 
 export const metadata: Metadata = buildMetadata({
   title: "サービス",
   description:
     "フェイシャルトリートメント、ボディトリートメント、肌診断、カウンセリング。志摩の完全プライベートサロンがご提供するサービスをご紹介します。",
   path: "/service",
+  noIndex: !pageReadiness.service,
 });
 
 const categoryImages = {

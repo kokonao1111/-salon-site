@@ -35,10 +35,14 @@ export function Header() {
         }`}
       >
         <Container className="flex h-20 items-center justify-between sm:h-24">
+          {/*
+            正式な店舗名・ロゴが未確定のため、作業用の仮称をロゴのように強調しない。
+            通常の見出しより控えめなウェイト・字間・色で表示する。
+          */}
           <Link
             href="/"
-            className={`whitespace-nowrap font-serif-en text-[11px] tracking-[0.12em] uppercase transition-colors sm:text-base sm:tracking-[0.2em] ${
-              transparent ? "text-soft-white" : "text-ink"
+            className={`whitespace-nowrap font-serif-en text-[11px] tracking-[0.03em] italic transition-colors sm:text-sm ${
+              transparent ? "text-soft-white/80" : "text-ink/60"
             }`}
           >
             {siteConfig.brand.workingTitleEn}

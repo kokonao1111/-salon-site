@@ -10,7 +10,19 @@ import type { Confirmable, ServiceCategory } from "./types";
  * に書き換えるだけで、サイト全体（ヘッダー・フッター・予約導線・構造化データ等）に反映される。
  */
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://shima-private-salon.example";
+/**
+ * 本番URLが未設定の間は null とし、canonical / sitemap / OGP に
+ * 仮ドメインを一切出力しない（検索エンジンに誤ったURLを渡さないため）。
+ * ドメインの取得・契約はクライアント側の担当範囲であり、ここでは
+ * 環境変数が設定されているかどうかだけを見る。
+ */
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || null;
+
+/**
+ * OGP画像の絶対URL解決など、Next.jsの仕組み上どうしても基点URLが必要な箇所でのみ使う
+ * 内部専用の仮URL。canonical / og:url / sitemap には絶対に使用しないこと。
+ */
+export const INTERNAL_BASE_URL = "https://shima-private-salon.example";
 
 export const siteConfig = {
   /**

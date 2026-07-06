@@ -9,6 +9,7 @@ import { menuItems } from "@/lib/menu";
 import { serviceCategories } from "@/lib/siteConfig";
 import { isConfirmed } from "@/lib/types";
 import { pageReadiness } from "@/lib/pageReadiness";
+import { guardPageReadiness } from "@/lib/guardPageReadiness";
 
 export const metadata: Metadata = buildMetadata({
   title: "メニュー・料金",
@@ -18,6 +19,8 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function MenuPage() {
+  guardPageReadiness(pageReadiness.menu);
+
   const confirmedItems = menuItems.filter((item) => isConfirmed(item.name));
   const hasConfirmedMenu = confirmedItems.length > 0;
 

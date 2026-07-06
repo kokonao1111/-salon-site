@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
-import { primaryNav, reserveNav } from "@/lib/navigation";
+import { primaryNav, reserveNav, type NavItem } from "@/lib/navigation";
 
 interface MobileMenuProps {
   open: boolean;
@@ -12,7 +12,8 @@ interface MobileMenuProps {
   currentPath: string;
 }
 
-const navItems = [...primaryNav, reserveNav];
+// reserveNav は LINE・電話とも未確定の間 null になるため、その場合は一覧に含めない。
+const navItems: NavItem[] = [...primaryNav, ...(reserveNav ? [reserveNav] : [])];
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 

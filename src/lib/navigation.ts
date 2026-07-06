@@ -16,6 +16,9 @@ export interface NavItem {
  *   中心にし、サービス・メニュー・初めての方・お知らせ・スタッフは、それぞれの内容が
  *   確定・承認されるまでナビゲーションに並べない（pageReadiness で一元判定）。
  * Recruit は採用条件確定まで常に非表示（ルート自体は実装済み）。
+ *
+ * ご予約（reserveNav）だけは段階に関わらず、LINE・電話のいずれかが確定するまで
+ * 常に非表示にする（予約できないリンクを一切出さないため）。
  */
 const alwaysVisibleNav: NavItem[] = [
   { label: "コンセプト", labelEn: "Concept", href: "/concept" },
@@ -41,11 +44,10 @@ export const primaryNav: NavItem[] = [
   ...conditionalNav.filter((entry) => isPreview || entry.ready).map((entry) => entry.item),
 ];
 
-export const reserveNav: NavItem = {
-  label: "ご予約",
-  labelEn: "Reserve",
-  href: "/contact",
-};
+/** LINE・電話のいずれも未確定の間は null（呼び出し側で必ず非表示にする）。 */
+export const reserveNav: NavItem | null = pageReadiness.contact
+  ? { label: "ご予約", labelEn: "Reserve", href: "/contact" }
+  : null;
 
 export const footerLegalNav: NavItem[] = [
   { label: "プライバシーポリシー", labelEn: "Privacy Policy", href: "/privacy" },

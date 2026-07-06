@@ -13,6 +13,18 @@
 
 ---
 
+## 2026-07-06 の変更点（要約）
+
+新しいコピー・サービス・料金・設備・予約情報は創作していません。今回の変更は主に構造面です。
+
+- LINE・電話が両方未確定の間、Header / MobileMenu / Footer から「ご予約」導線を完全に非表示にしました（`/contact` もナビ・sitemapから除外）。
+- `/service` `/menu` `/first-visit` `/staff` `/recruit` `/contact` `/news`（承認済み記事がない場合）は、prelaunch / live では直接アクセスしても404になるようにしました（`guardPageReadiness`）。preview では引き続き閲覧できます。
+- 正式店舗名が確定するまで、Header・Footer・OGPで「SHIMA PRIVATE BEAUTY SALON」をブランド名として表示しないようにしました。代わりに、指示いただいた記述的表記「Private Beauty Salon / Shima」を使用しています（`siteConfig.brand.pendingLabel`）。正式名称確定後は、`siteConfig.brand.status` を `confirmed` にするだけで、この表記から正式名称の表示に一元的に切り替わります。
+- Home の「Facts」セクションは、支給原稿内に実在する語句（完全プライベート／高精度な肌診断器／フェイシャル＆ボディ）をそのまま抜き出したもので、新しい説明文は追加していません。
+- Opening セクションの「予約開始は準備が整い次第ご案内します。」は事実の案内文であり、新しいブランドコピーではありません。
+
+---
+
 ## 🔴 最優先：法的文書・ブランドの明言に関わるもの
 
 ### 1. Privacy Policy 本文（全11セクション）

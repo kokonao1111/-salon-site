@@ -3,6 +3,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { NewsList } from "@/components/news/NewsList";
 import { pageReadiness } from "@/lib/pageReadiness";
+import { guardPageReadiness } from "@/lib/guardPageReadiness";
 
 export const metadata: Metadata = buildMetadata({
   title: "お知らせ",
@@ -12,6 +13,8 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function NewsPage() {
+  guardPageReadiness(pageReadiness.news);
+
   return (
     <>
       <PageIntro eyebrow="News" title="お知らせ" titleEn="News" />

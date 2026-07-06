@@ -5,7 +5,8 @@ import { isReservationReady } from "@/lib/reservation";
 
 /**
  * オープン予定日を主役にした、事実だけの案内セクション。
- * 工事工程の詳細は /opening に譲り、Homeでは日付と「写真は完成後に掲載する」旨のみ伝える。
+ * 工事工程の詳細は /opening に譲り、Homeでは日付・「写真は完成後に掲載する」旨・
+ * 予約開始の案内のみを伝える。
  */
 export function OpeningSection() {
   const reservationReady = isReservationReady();
@@ -18,10 +19,14 @@ export function OpeningSection() {
         <p className="mt-6 text-[15px] leading-loose text-pearl">
           店舗の完成後、写真を順次掲載してまいります。
         </p>
-        {reservationReady && (
+        {reservationReady ? (
           <div className="mt-8">
             <ReserveActions tone="light" />
           </div>
+        ) : (
+          <p className="mt-6 text-[15px] leading-loose text-pearl">
+            予約開始は準備が整い次第ご案内します。
+          </p>
         )}
       </Container>
     </section>

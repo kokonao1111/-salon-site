@@ -36,8 +36,8 @@ export function Header() {
       >
         <Container className="flex h-20 items-center justify-between sm:h-24">
           {/*
-            正式な店舗名・ロゴが未確定のため、作業用の仮称をロゴのように強調しない。
-            通常の見出しより控えめなウェイト・字間・色で表示する。
+            正式な店舗名・ロゴが確定するまでは、それをロゴとして表示しない。
+            小さな記述的表記（pendingLabel）にとどめる。
           */}
           <Link
             href="/"
@@ -45,7 +45,9 @@ export function Header() {
               transparent ? "text-soft-white/80" : "text-ink/60"
             }`}
           >
-            {siteConfig.brand.workingTitleEn}
+            {siteConfig.brand.status === "confirmed"
+              ? siteConfig.brand.workingTitleEn
+              : siteConfig.brand.pendingLabel}
           </Link>
 
           <nav aria-label="メインナビゲーション" className="hidden items-center gap-8 lg:flex">
@@ -64,16 +66,18 @@ export function Header() {
                 </Link>
               );
             })}
-            <Link
-              href={reserveNav.href}
-              className={`border px-5 py-2 text-sm tracking-[0.05em] transition-colors ${
-                transparent
-                  ? "border-soft-white text-soft-white hover:bg-soft-white hover:text-ink"
-                  : "border-ink text-ink hover:bg-ink hover:text-soft-white"
-              }`}
-            >
-              {reserveNav.label}
-            </Link>
+            {reserveNav && (
+              <Link
+                href={reserveNav.href}
+                className={`border px-5 py-2 text-sm tracking-[0.05em] transition-colors ${
+                  transparent
+                    ? "border-soft-white text-soft-white hover:bg-soft-white hover:text-ink"
+                    : "border-ink text-ink hover:bg-ink hover:text-soft-white"
+                }`}
+              >
+                {reserveNav.label}
+              </Link>
+            )}
           </nav>
 
           <button

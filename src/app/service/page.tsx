@@ -8,6 +8,7 @@ import { ServiceCategoryBlock } from "@/components/service/ServiceCategoryBlock"
 import { serviceCategories } from "@/lib/siteConfig";
 import { placeholderImages } from "@/lib/placeholderImages";
 import { pageReadiness } from "@/lib/pageReadiness";
+import { guardPageReadiness } from "@/lib/guardPageReadiness";
 
 export const metadata: Metadata = buildMetadata({
   title: "サービス",
@@ -25,6 +26,8 @@ const categoryImages = {
 } as const;
 
 export default function ServicePage() {
+  guardPageReadiness(pageReadiness.service);
+
   return (
     <>
       <PageIntro

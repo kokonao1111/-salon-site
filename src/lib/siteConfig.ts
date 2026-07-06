@@ -34,6 +34,11 @@ export const siteConfig = {
     status: "pending" as "pending" | "confirmed",
     workingTitleJa: "志摩 プライベートビューティーサロン",
     workingTitleEn: "SHIMA PRIVATE BEAUTY SALON",
+    /**
+     * 正式名称が確定するまでの間、ロゴ・ブランド名の代わりに使う小さな記述的表記。
+     * ブランド名として扱わないこと（Header・Footer・OGPで使用）。
+     */
+    pendingLabel: "Private Beauty Salon / Shima",
     note: "TODO: クライアント確認待ち — 正式な店舗名・ロゴが確定次第、本フィールドを更新する。",
   },
 
@@ -70,6 +75,13 @@ export const siteConfig = {
   ],
 
   openingApprox: "2026年9月中旬 オープン予定",
+
+  /**
+   * Heroに使う、権利確認済みの志摩の実景（周辺風景。店舗写真ではない）。
+   * 撮影・素材が用意でき次第 `public/images/` 配下のパスを設定する。
+   * 未設定の間は、Heroは短い単色ビジュアルのまま表示される。
+   */
+  heroImageSrc: null as string | null,
 
   /** Google広告・アクセス解析用の計測ID。未発行の間は null のままにし、架空IDを入れない。 */
   measurement: {

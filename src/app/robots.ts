@@ -17,6 +17,7 @@ export default function robots(): MetadataRoute.Robots {
   if (!pageReadiness.firstVisit) notReadyPaths.push("/first-visit");
   if (!pageReadiness.staff) notReadyPaths.push("/staff");
   if (!pageReadiness.news) notReadyPaths.push("/news");
+  if (!pageReadiness.contact) notReadyPaths.push("/contact");
 
   return {
     rules: {

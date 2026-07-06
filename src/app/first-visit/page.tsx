@@ -5,6 +5,7 @@ import { FirstVisitTimeline } from "@/components/first-visit/FirstVisitTimeline"
 import { Container } from "@/components/ui/Container";
 import { ReserveActions } from "@/components/ui/ReserveActions";
 import { pageReadiness } from "@/lib/pageReadiness";
+import { guardPageReadiness } from "@/lib/guardPageReadiness";
 import { siteConfig } from "@/lib/siteConfig";
 import { isConfirmed } from "@/lib/types";
 
@@ -16,6 +17,8 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function FirstVisitPage() {
+  guardPageReadiness(pageReadiness.firstVisit);
+
   const reservationReady =
     isConfirmed(siteConfig.contact.lineUrl) || isConfirmed(siteConfig.contact.phone);
 

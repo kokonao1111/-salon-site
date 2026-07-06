@@ -29,7 +29,9 @@ export default function OpengraphImage() {
             textTransform: "uppercase",
           }}
         >
-          {siteConfig.brand.workingTitleEn}
+          {siteConfig.brand.status === "confirmed"
+            ? siteConfig.brand.workingTitleEn
+            : siteConfig.brand.pendingLabel}
         </div>
         <div
           style={{

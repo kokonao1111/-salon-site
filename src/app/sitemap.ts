@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/siteConfig";
 import { isLiveStage } from "@/lib/siteStage";
 import { pageReadiness } from "@/lib/pageReadiness";
 
-const alwaysPublicPaths = ["", "/concept", "/access", "/opening", "/contact", "/privacy"];
+const alwaysPublicPaths = ["", "/concept", "/access", "/opening", "/privacy"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.siteUrl;
@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...(pageReadiness.firstVisit ? ["/first-visit"] : []),
     ...(pageReadiness.staff ? ["/staff"] : []),
     ...(pageReadiness.news ? ["/news"] : []),
+    ...(pageReadiness.contact ? ["/contact"] : []),
   ];
 
   return paths.map((path) => ({

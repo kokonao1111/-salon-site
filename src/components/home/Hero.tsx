@@ -9,18 +9,27 @@ import { CONCEPT_TITLE } from "@/lib/copy";
 const [TITLE_LEAD, TITLE_TAIL] = CONCEPT_TITLE.split("、");
 
 /**
- * プレオープン期のファーストビュー。
- * 店舗写真が届くまでは短く控えめにし、巨大な装飾で存在感を演出しない。
+ * ファーストビュー。
+ * `siteConfig.heroImageSrc` が未設定の間は、店舗写真が届くまでの短く控えめな
+ * 単色ビジュアルとして扱う（最終デザインではない）。実写真が設定された場合のみ、
+ * 高さを75〜90svhに広げて写真を主役にする。
  * 予約導線が未確定の間は押せないCTAを置かず、「2026年9月中旬 OPEN」を主役にする。
  * 仮称の店舗名はここには出さない（Headerで既に控えめに表示済みのため、重複させない）。
  */
 export function Hero() {
   const reservationReady = isReservationReady();
+  const hasHeroImage = Boolean(siteConfig.heroImageSrc);
 
   return (
-    <section className="relative flex min-h-[420px] items-end overflow-hidden py-24 sm:py-32">
+    <section
+      className={
+        hasHeroImage
+          ? "relative flex h-[90svh] min-h-[560px] items-end overflow-hidden"
+          : "relative flex min-h-[420px] items-end overflow-hidden py-24 sm:py-32"
+      }
+    >
       <div className="absolute inset-0">
-        <HeroVisual />
+        <HeroVisual src={siteConfig.heroImageSrc ?? undefined} />
       </div>
 
       <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16">

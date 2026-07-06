@@ -3,9 +3,12 @@ import { buildMetadata } from "@/lib/metadata";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Container } from "@/components/ui/Container";
 import { PendingNotice } from "@/components/ui/PendingNotice";
+import { pageReadiness } from "@/lib/pageReadiness";
+import { guardPageReadiness } from "@/lib/guardPageReadiness";
 
 /**
- * 採用条件が確定するまで本番ナビゲーションには表示しない。
+ * 採用条件が確定するまで本番ナビゲーションに表示せず、
+ * prelaunch / live では直接アクセスも404にする。
  * ルートとデータ構造のみ準備済み。
  */
 export const metadata: Metadata = buildMetadata({
@@ -16,6 +19,8 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function RecruitPage() {
+  guardPageReadiness(pageReadiness.recruit);
+
   return (
     <>
       <PageIntro eyebrow="Recruit" title="採用情報" titleEn="Recruit" />

@@ -29,7 +29,10 @@ export const metadata: Metadata = {
     title: siteConfig.seoDefaults.defaultTitle,
     description: siteConfig.seoDefaults.description,
     ...(siteConfig.siteUrl ? { url: siteConfig.siteUrl } : {}),
-    siteName: siteConfig.brand.workingTitleJa,
+    // 正式店舗名が確定するまでは、仮称を正式なsiteNameとして出力しない。
+    ...(siteConfig.brand.status === "confirmed"
+      ? { siteName: siteConfig.brand.workingTitleJa }
+      : {}),
     locale: "ja_JP",
     type: "website",
   },

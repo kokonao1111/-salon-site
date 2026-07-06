@@ -30,7 +30,10 @@ export function buildMetadata({ title, description, path, noIndex }: PageMetaInp
       title,
       description,
       ...(url ? { url } : {}),
-      siteName: siteConfig.brand.workingTitleJa,
+      // 正式店舗名が確定するまでは、仮称を正式なsiteNameとして出力しない。
+      ...(siteConfig.brand.status === "confirmed"
+        ? { siteName: siteConfig.brand.workingTitleJa }
+        : {}),
       locale: "ja_JP",
       type: "website",
     },

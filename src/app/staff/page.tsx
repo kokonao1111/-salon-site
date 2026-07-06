@@ -7,9 +7,11 @@ import { StaffCard } from "@/components/staff/StaffCard";
 import { staffMembers } from "@/lib/staff";
 import { isConfirmed } from "@/lib/types";
 import { pageReadiness } from "@/lib/pageReadiness";
+import { guardPageReadiness } from "@/lib/guardPageReadiness";
 
 /**
- * スタッフ情報・写真の確認が完了するまで本番ナビゲーションには表示しない。
+ * スタッフ情報・写真の確認が完了するまで本番ナビゲーションに表示せず、
+ * prelaunch / live では直接アクセスも404にする。
  * ルートとページ自体はこの通り実装済みで、確認後すぐに公開できる。
  */
 export const metadata: Metadata = buildMetadata({
@@ -20,6 +22,8 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function StaffPage() {
+  guardPageReadiness(pageReadiness.staff);
+
   const confirmedStaff = staffMembers.filter((staff) => isConfirmed(staff.name));
 
   return (

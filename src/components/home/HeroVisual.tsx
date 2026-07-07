@@ -1,5 +1,5 @@
-import { Camera } from "lucide-react";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { PhotoComingSoon } from "@/components/ui/PhotoComingSoon";
 import { placeholderImages } from "@/lib/placeholderImages";
 
 interface HeroVisualProps {
@@ -9,11 +9,9 @@ interface HeroVisualProps {
 
 /**
  * Hero専用のビジュアル領域。
- *
- * 店舗写真が届くまでは、暗い色や抽象的な装飾ではなく、白・淡いベージュを基調にした
- * 明るいグラデーション（mood: light）の上に、「写真は準備中」であることを示す
- * 控えめな額縁とキャプションを重ねる。実写真が届き次第 `src` を渡すだけで差し替わり、
- * 額縁・キャプションは自動的に消える。
+ * 店舗写真が届くまでは、抽象的な装飾を主役にせず、白・淡いベージュの撮影枠として
+ * `PhotoComingSoon` を重ねる。
+ * 実写真が届き次第 `src` を渡すだけで差し替わり、演出は自動的に消える。
  */
 export function HeroVisual({ src }: HeroVisualProps) {
   return (
@@ -24,18 +22,9 @@ export function HeroVisual({ src }: HeroVisualProps) {
         alt="志摩の周辺風景"
         fill
         priority
+        quiet={!src}
       />
-      {!src && (
-        <div className="absolute inset-5 flex flex-col items-center justify-center gap-3 border border-gold/50 px-6 text-center sm:inset-10">
-          <Camera aria-hidden className="h-5 w-5 text-forest/45" />
-          <p className="font-serif-en text-[11px] tracking-[0.2em] text-forest/50 uppercase">
-            Photo Coming Soon
-          </p>
-          <p className="max-w-xs text-xs leading-relaxed tracking-[0.02em] text-forest/50">
-            店舗完成後、実際の店内写真に差し替え予定です
-          </p>
-        </div>
-      )}
+      {!src && <PhotoComingSoon caption="店舗完成後、実際の店内写真に差し替え予定です" />}
     </div>
   );
 }

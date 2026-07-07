@@ -83,7 +83,7 @@ export function Header() {
             <div className="hidden flex-col items-end lg:flex">
               <Link
                 href={reserveNav.href}
-                className="border border-forest bg-forest px-5 py-2.5 text-sm tracking-[0.05em] text-soft-white transition-colors hover:bg-forest/85"
+                className="rounded-full border border-forest bg-forest px-6 py-2.5 text-sm tracking-[0.05em] text-soft-white transition-colors hover:bg-forest/85"
               >
                 {reserveNav.label}
               </Link>

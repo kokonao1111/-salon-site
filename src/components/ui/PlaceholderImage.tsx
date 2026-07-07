@@ -95,10 +95,10 @@ export function PlaceholderImage({
       ) : quiet ? (
         <div
           aria-hidden
-          className="absolute inset-0 bg-forest"
+          className="absolute inset-0 bg-warm-ivory"
           style={{
-            backgroundImage: "radial-gradient(rgba(252,251,248,0.06) 1px, transparent 1px)",
-            backgroundSize: "5px 5px",
+            backgroundImage:
+              "repeating-linear-gradient(90deg, rgba(164,138,98,0.12) 0, rgba(164,138,98,0.12) 1px, transparent 1px, transparent 64px)",
           }}
         />
       ) : (

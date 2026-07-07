@@ -1,46 +1,41 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
-import { PageIntro } from "@/components/ui/PageIntro";
+import { FirstVisitHero } from "@/components/first-visit/FirstVisitHero";
+import { FirstVisitIntro } from "@/components/first-visit/FirstVisitIntro";
+import { FirstVisitReassurance } from "@/components/first-visit/FirstVisitReassurance";
+import { FirstVisitCounseling } from "@/components/first-visit/FirstVisitCounseling";
 import { FirstVisitTimeline } from "@/components/first-visit/FirstVisitTimeline";
-import { Container } from "@/components/ui/Container";
-import { ReserveActions } from "@/components/ui/ReserveActions";
+import { FirstVisitFaq } from "@/components/first-visit/FirstVisitFaq";
+import { FirstVisitStaffNotice } from "@/components/first-visit/FirstVisitStaffNotice";
+import { FirstVisitRelatedLinks } from "@/components/first-visit/FirstVisitRelatedLinks";
+import { FirstVisitCta } from "@/components/first-visit/FirstVisitCta";
 import { pageReadiness } from "@/lib/pageReadiness";
-import { siteConfig } from "@/lib/siteConfig";
-import { isConfirmed } from "@/lib/types";
 
 export const metadata: Metadata = buildMetadata({
   title: "初めての方へ",
-  description: "初めてご来店される方向けに、ご予約からカウンセリング、施術までの流れをご案内します。",
+  description:
+    "初めてご来店される方向けに、完全プライベート空間での過ごし方、来店の流れ、よくある不安についてご案内します。",
   path: "/first-visit",
   noIndex: !pageReadiness.firstVisit,
 });
 
+/**
+ * 初めて来店する方の不安を解消するページ。
+ * ヒーロー → 導入文 → 安心材料 → カウンセリング/肌診断 → 来店の流れ →
+ * よくある不安 → スタッフ体制 → 関連ページ → 予約準備中の案内、の順で構成する。
+ */
 export default function FirstVisitPage() {
-  const reservationReady =
-    isConfirmed(siteConfig.contact.lineUrl) || isConfirmed(siteConfig.contact.phone);
-
   return (
     <>
-      <PageIntro
-        eyebrow="First Visit"
-        title="初めての方へ"
-        titleEn="Your First Visit"
-        description="初めてご来店いただく方にも安心してお過ごしいただけるよう、ご予約から施術までの流れをご案内いたします。"
-      />
+      <FirstVisitHero />
+      <FirstVisitIntro />
+      <FirstVisitReassurance />
+      <FirstVisitCounseling />
       <FirstVisitTimeline />
-
-      <section className="bg-soft-white py-20 text-center sm:py-24">
-        <Container>
-          {reservationReady && (
-            <p className="mx-auto max-w-md text-sm leading-loose text-forest/80">
-              ご不明な点は、LINEまたはお電話にてお気軽にお問い合わせください。
-            </p>
-          )}
-          <div className="mt-8 flex justify-center">
-            <ReserveActions className={reservationReady ? "" : "mx-auto max-w-md"} />
-          </div>
-        </Container>
-      </section>
+      <FirstVisitFaq />
+      <FirstVisitStaffNotice />
+      <FirstVisitRelatedLinks />
+      <FirstVisitCta />
     </>
   );
 }

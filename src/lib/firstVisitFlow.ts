@@ -1,16 +1,13 @@
 /**
  * 「初めての方」ページで案内する来店の流れ。
- * 実際の運用フローは未確定のため、一般的なプライベートサロンの流れを
- * "クライアント確認用の仮原稿" として管理する。
- *
- * isDraft: true の項目は、クライアントの確認前であることを示す内部フラグ。
- * isApproved: false の間は公開画面に一切表示しない（承認され次第 true に更新する）。
+ * 実際の運用フローが確定するまでの間、クライアントより直接指定された言い回し
+ * （予約・料金は「準備中」「予定」であることを明示する表現）をそのまま使用する。
+ * isApproved: true は「クライアントの指示に基づく確定内容」であることを示す。
  */
 export interface FirstVisitStep {
   step: number;
   title: string;
   description: string;
-  isDraft: true;
   isApproved: boolean;
 }
 
@@ -18,51 +15,38 @@ export const firstVisitFlow: FirstVisitStep[] = [
   {
     step: 1,
     title: "ご予約",
-    description: "LINEまたはお電話にて、ご希望の日時をお知らせください。",
-    isDraft: true,
-    isApproved: false,
+    description: "予約方法は現在準備中です。LINEまたはお電話での受付を予定しております。",
+    isApproved: true,
   },
   {
     step: 2,
-    title: "ご来店",
-    description: "完全プライベートの個室空間へご案内いたします。",
-    isDraft: true,
-    isApproved: false,
+    title: "ご来店・受付",
+    description: "完全プライベートの空間へご案内いたします。",
+    isApproved: true,
   },
   {
     step: 3,
-    title: "カウンセリング",
-    description: "現在のお肌・お身体の状態やご希望を丁寧にお伺いいたします。",
-    isDraft: true,
-    isApproved: false,
+    title: "カウンセリング・肌診断",
+    description: "高精度な肌診断器で、お肌の状態を確認いたします。",
+    isApproved: true,
   },
   {
     step: 4,
-    title: "肌診断",
-    description: "高精度な肌診断器で、お肌の現在と未来の状態を読み解きます。",
-    isDraft: true,
-    isApproved: false,
+    title: "プログラム提案",
+    description: "肌と身体の状態に合わせて、施術内容をご提案いたします。",
+    isApproved: true,
   },
   {
     step: 5,
-    title: "プログラム提案",
-    description: "診断結果をもとに、あなたに合わせたプログラムをご提案いたします。",
-    isDraft: true,
-    isApproved: false,
+    title: "施術",
+    description: "フェイシャルまたはボディトリートメントをご提供する予定です。",
+    isApproved: true,
   },
   {
     step: 6,
-    title: "施術",
-    description: "贅沢な個室空間で、オーダーメイドのトリートメントをご提供いたします。",
-    isDraft: true,
-    isApproved: false,
-  },
-  {
-    step: 7,
     title: "アフターカウンセリング",
-    description: "施術後のお肌・お身体の状態と、今後のご提案をお伝えいたします。",
-    isDraft: true,
-    isApproved: false,
+    description: "今後のケアや次回のご提案をお伝えいたします。",
+    isApproved: true,
   },
 ];
 

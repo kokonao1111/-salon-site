@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import { Hero } from "@/components/home/Hero";
 import { ConceptFull } from "@/components/home/ConceptFull";
+import { AccentShowcase } from "@/components/ui/AccentShowcase";
 import { ImmersiveFirstVisit } from "@/components/home/ImmersiveFirstVisit";
 import { ImmersiveServices } from "@/components/home/ImmersiveServices";
 import { ImmersiveFlow } from "@/components/home/ImmersiveFlow";
@@ -26,6 +27,15 @@ export default function Home() {
     <>
       <Hero />
       <ConceptFull />
+      <AccentShowcase
+        src="/images/backgrounds/hero-shima-coast.jpg"
+        alt="志摩の海岸風景（イメージ）"
+        accent="A Quiet Retreat"
+        title="喧騒から離れた、完全プライベートな時間へ。"
+        description="志摩の隠れ家で、肌診断をもとにしたオーダーメイドのケアをご用意しています。"
+        href="/first-visit"
+        linkLabel="初めての方へ"
+      />
       <ImmersiveFirstVisit />
       <ImmersiveServices />
       <ImmersiveFlow />

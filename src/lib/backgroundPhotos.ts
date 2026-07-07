@@ -38,8 +38,9 @@ export const backgroundPhotos: Record<
   },
   firstVisit: {
     id: "bg-03-first-visit",
-    description: "サロン空間・受付エリア（店舗撮影後に差し替え）",
-    src: null,
+    description:
+      "サロン空間・受付エリア。現在は店舗撮影前のため、竹林の商用利用可能なストック写真を暫定使用（CREDITS.md参照）。実店舗の空間写真ではない。",
+    src: "/images/backgrounds/concept-bamboo-grove.jpg",
   },
   counseling: {
     id: "bg-04-counseling",

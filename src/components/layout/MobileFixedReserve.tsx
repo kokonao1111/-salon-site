@@ -22,7 +22,7 @@ export function MobileFixedReserve() {
           target="_blank"
           rel="noopener noreferrer"
           data-gtm-event="reserve_line_click"
-          className="flex min-h-[52px] flex-1 items-center justify-center bg-ink text-sm tracking-[0.04em] text-soft-white"
+          className="flex min-h-[52px] flex-1 items-center justify-center bg-forest text-sm tracking-[0.04em] text-soft-white"
         >
           LINEで予約する
         </a>

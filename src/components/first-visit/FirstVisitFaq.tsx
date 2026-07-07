@@ -7,7 +7,7 @@ import { firstVisitFaq } from "@/lib/firstVisitFaq";
  */
 export function FirstVisitFaq() {
   return (
-    <section className="bg-warm-ivory py-16 sm:py-24">
+    <section id="faq" className="bg-warm-ivory py-16 sm:py-24">
       <Container className="max-w-2xl">
         <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">FAQ</p>
         <div className="mt-3 h-px w-12 bg-gold" />

@@ -1,22 +1,30 @@
 import { MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
+import { PhotoBackground } from "@/components/ui/PhotoBackground";
+import { backgroundPhotos } from "@/lib/backgroundPhotos";
 import { siteConfig } from "@/lib/siteConfig";
 import { isConfirmed } from "@/lib/types";
 
 /**
  * 住所・電話番号の状態・Googleマップ導線で構成する事実ベースのセクション。
- * 埋め込み地図は、Googleマップの店舗登録が完了するまで表示しない
- * （`siteConfig.googleMapsListing`）。営業時間・定休日は未確定のため作らない。
- * 地図は埋め込まないが、参考サイトの地図エリアに相当する面積を持つ
- * カード型の導線にして、情報としての存在感を持たせる。
+ * 背景に外観・アクセス用の写真エリアを置き（未撮影の間は単色）、写真から
+ * 現実の店舗情報へ自然につなげる。埋め込み地図は、Googleマップの店舗登録が
+ * 完了するまで表示しない（`siteConfig.googleMapsListing`）。営業時間・定休日は
+ * 未確定のため作らない。
  */
 export function AccessSection() {
   const { phone } = siteConfig.contact;
 
   return (
-    <section className="bg-warm-ivory py-16 sm:py-24">
-      <Container>
+    <section className="relative overflow-hidden py-24 sm:py-32">
+      <PhotoBackground
+        slot={backgroundPhotos.accessExterior}
+        alt="外観・アクセスイメージ（準備中）"
+        overlay="ivory"
+      />
+
+      <Container className="relative">
         <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-stretch lg:gap-10">
           <div>
             <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">Access</p>
@@ -56,7 +64,7 @@ export function AccessSection() {
             target="_blank"
             rel="noopener noreferrer"
             data-gtm-event="map_click_home_preview"
-            className="group flex min-h-[260px] flex-col items-center justify-center gap-3 border border-gold/30 bg-soft-white px-6 py-10 text-center transition-colors hover:bg-warm-ivory"
+            className="group flex min-h-[260px] flex-col items-center justify-center gap-3 bg-soft-white/75 px-6 py-10 text-center backdrop-blur-sm transition-colors hover:bg-soft-white/90"
           >
             <MapPin aria-hidden className="h-6 w-6 text-gold" />
             <p className="font-serif-jp text-base text-ink">志摩市阿児町神明</p>

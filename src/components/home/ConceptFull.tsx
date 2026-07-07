@@ -1,5 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { RevealText } from "@/components/ui/RevealText";
+import { PhotoBackground } from "@/components/ui/PhotoBackground";
+import { backgroundPhotos } from "@/lib/backgroundPhotos";
 import { CONCEPT_COPY } from "@/lib/copy";
 
 // 【変更禁止原稿】を1文字も変えず、全文をそのまま使用する。
@@ -7,44 +9,52 @@ const [titleBlock, soloBlock, closingBlock] = CONCEPT_COPY;
 const [title, ...titleRest] = titleBlock;
 
 /**
- * Homeのコンセプトセクションは、支給原稿（変更禁止）を要約・抜粋せず全文掲載する。
- * 独自の見出し・説明文は追加しない。
+ * 導入セクション。背景に志摩の周辺環境の写真（準備中は単色）を残しながら、
+ * 生成り半透明のパネルの中に支給原稿（変更禁止）を1文字も変えず全文掲載する。
  */
 export function ConceptFull() {
   return (
-    <section className="bg-warm-ivory py-20 sm:py-28">
-      <Container className="max-w-2xl">
-        <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">Concept</p>
-        <div className="mt-3 h-px w-12 bg-gold" />
+    <section className="relative overflow-hidden py-24 sm:py-32">
+      <PhotoBackground
+        slot={backgroundPhotos.conceptBackground}
+        alt="志摩の周辺環境（準備中）"
+        overlay="none"
+      />
 
-        <RevealText className="mt-8">
-          <h2 className="text-pretty font-serif-jp text-2xl leading-[1.7] text-ink sm:text-3xl">
-            {title}
-          </h2>
-        </RevealText>
+      <Container className="relative max-w-2xl">
+        <div className="bg-warm-ivory/90 px-6 py-10 backdrop-blur-sm sm:px-14 sm:py-16">
+          <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">Concept</p>
+          <div className="mt-3 h-px w-12 bg-gold" />
 
-        <div className="mt-6 space-y-1.5">
-          {titleRest.map((line) => (
-            <RevealText key={line}>
-              <p className="text-pretty text-[15px] leading-[1.9] text-forest/85">{line}</p>
-            </RevealText>
-          ))}
-        </div>
-
-        <div className="mt-10 border-t border-gold/30 pt-10">
-          <RevealText>
-            <p className="text-pretty font-serif-jp text-xl leading-[1.9] text-ink sm:text-2xl">
-              {soloBlock[0]}
-            </p>
+          <RevealText className="mt-8">
+            <h2 className="text-pretty font-serif-jp text-2xl leading-[1.7] text-ink sm:text-3xl">
+              {title}
+            </h2>
           </RevealText>
-        </div>
 
-        <div className="mt-10 space-y-1.5 border-t border-gold/30 pt-10">
-          {closingBlock.map((line) => (
-            <RevealText key={line}>
-              <p className="text-pretty text-[15px] leading-[1.9] text-forest/85">{line}</p>
+          <div className="mt-6 space-y-1.5">
+            {titleRest.map((line) => (
+              <RevealText key={line}>
+                <p className="text-pretty text-[15px] leading-[1.9] text-forest/85">{line}</p>
+              </RevealText>
+            ))}
+          </div>
+
+          <div className="mt-10 border-t border-gold/30 pt-10">
+            <RevealText>
+              <p className="text-pretty font-serif-jp text-xl leading-[1.9] text-ink sm:text-2xl">
+                {soloBlock[0]}
+              </p>
             </RevealText>
-          ))}
+          </div>
+
+          <div className="mt-10 space-y-1.5 border-t border-gold/30 pt-10">
+            {closingBlock.map((line) => (
+              <RevealText key={line}>
+                <p className="text-pretty text-[15px] leading-[1.9] text-forest/85">{line}</p>
+              </RevealText>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { RevealText } from "@/components/ui/RevealText";
 import { PhotoBackground } from "@/components/ui/PhotoBackground";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { backgroundPhotos } from "@/lib/backgroundPhotos";
 import { firstVisitFlow } from "@/lib/firstVisitFlow";
 
@@ -14,11 +15,9 @@ export function ImmersiveFlow() {
       <PhotoBackground slot={backgroundPhotos.treatment} alt="施術室イメージ（準備中）" overlay="soft" />
 
       <Container className="relative">
-        <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">Flow</p>
-        <div className="mt-3 h-px w-12 bg-gold" />
-        <h2 className="mt-6 font-serif-jp text-2xl text-ink sm:text-3xl">来店の流れ</h2>
+        <SectionIntro eyebrow="Flow" title="来店の流れ" />
 
-        <ol className="mt-10 divide-y divide-gold/25 border-t border-b border-gold/25">
+        <ol className="mt-12 divide-y divide-gold/25 border-t border-b border-gold/25">
           {firstVisitFlow.map((step) => (
             <li key={step.step} className="flex flex-col gap-2 py-7 sm:flex-row sm:gap-10">
               <RevealText className="sm:w-28 sm:shrink-0">
@@ -36,7 +35,7 @@ export function ImmersiveFlow() {
           ))}
         </ol>
 
-        <p className="mt-8 text-sm leading-loose text-forest/70">
+        <p className="mt-8 text-center text-sm leading-loose text-forest/70">
           ご予約はLINE・お電話での受付を準備中です。
         </p>
       </Container>

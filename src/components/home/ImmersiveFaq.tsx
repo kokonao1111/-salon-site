@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { firstVisitFaq } from "@/lib/firstVisitFaq";
 
 /**
@@ -9,11 +10,9 @@ export function ImmersiveFaq() {
   return (
     <section className="bg-warm-ivory py-20 sm:py-28">
       <Container className="max-w-2xl">
-        <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">FAQ</p>
-        <div className="mt-3 h-px w-12 bg-gold" />
-        <h2 className="mt-6 font-serif-jp text-2xl text-ink sm:text-3xl">よくある質問</h2>
+        <SectionIntro eyebrow="FAQ" title="よくある質問" />
 
-        <dl className="mt-10 space-y-8">
+        <dl className="mt-12 space-y-8">
           {firstVisitFaq.map((item) => (
             <div key={item.question} className="border-t border-gold/30 pt-6">
               <dt className="flex gap-3 font-serif-jp text-base text-ink">

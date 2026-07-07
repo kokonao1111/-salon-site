@@ -2,6 +2,7 @@ import { MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
 import { PhotoBackground } from "@/components/ui/PhotoBackground";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { backgroundPhotos } from "@/lib/backgroundPhotos";
 import { siteConfig } from "@/lib/siteConfig";
 import { isConfirmed } from "@/lib/types";
@@ -25,14 +26,11 @@ export function AccessSection() {
       />
 
       <Container className="relative">
-        <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-stretch lg:gap-10">
+        <SectionIntro eyebrow="Access" title="アクセス" />
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-stretch lg:gap-10">
           <div>
-            <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">Access</p>
-            <div className="mt-3 h-px w-12 bg-gold" />
-            <h2 className="mt-6 font-serif-jp text-2xl leading-relaxed text-ink sm:text-3xl">
-              アクセス
-            </h2>
-            <address className="mt-6 font-serif-jp text-xl leading-relaxed text-ink not-italic sm:text-2xl">
+            <address className="font-serif-jp text-xl leading-relaxed text-ink not-italic sm:text-2xl">
               {siteConfig.address.full}
             </address>
 

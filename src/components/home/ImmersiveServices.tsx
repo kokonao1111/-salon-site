@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PhotoBackground } from "@/components/ui/PhotoBackground";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { backgroundPhotos } from "@/lib/backgroundPhotos";
 import { serviceCategories } from "@/lib/siteConfig";
 import type { ServiceCategoryId } from "@/lib/types";
@@ -27,16 +28,12 @@ export function ImmersiveServices() {
   return (
     <section className="bg-soft-white py-20 sm:py-28">
       <Container>
-        <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">Skin &amp; Body</p>
-        <div className="mt-3 h-px w-12 bg-gold" />
-        <h2 className="mt-6 font-serif-jp text-2xl text-ink sm:text-3xl">
-          肌診断・フェイシャル・ボディ
-        </h2>
+        <SectionIntro eyebrow="Skin & Body" title="肌診断・フェイシャル・ボディ" />
 
-        <div className="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-8">
+        <div className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
           {cards.map((category) => (
             <Link key={category.id} href="/menu" className="group block">
-              <div className="relative aspect-[4/5] overflow-hidden border border-gold/35">
+              <div className="relative aspect-[4/5] overflow-hidden border border-gold/55">
                 <PhotoBackground
                   slot={CARD_SLOTS[category.id as keyof typeof CARD_SLOTS]}
                   alt={category.nameJa}

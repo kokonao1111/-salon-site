@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { RevealText } from "@/components/ui/RevealText";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { firstVisitFlow } from "@/lib/firstVisitFlow";
 
 /**
@@ -10,11 +11,9 @@ export function FirstVisitTimeline() {
   return (
     <section className="bg-soft-white py-20 sm:py-28">
       <Container>
-        <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">Flow</p>
-        <div className="mt-3 h-px w-12 bg-gold" />
-        <h2 className="mt-6 font-serif-jp text-2xl text-ink sm:text-3xl">来店の流れ</h2>
+        <SectionIntro eyebrow="Flow" title="来店の流れ" />
 
-        <ol className="mt-10 divide-y divide-gold/20 border-t border-b border-gold/20">
+        <ol className="mt-12 divide-y divide-gold/20 border-t border-b border-gold/20">
           {firstVisitFlow.map((step) => (
             <li key={step.step} className="flex flex-col gap-2 py-8 sm:flex-row sm:gap-10">
               <RevealText className="sm:w-28 sm:shrink-0">

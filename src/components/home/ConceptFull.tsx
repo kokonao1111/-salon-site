@@ -23,8 +23,13 @@ export function ConceptFull() {
 
       <Container className="relative max-w-2xl">
         <div className="bg-warm-ivory/90 px-6 py-10 backdrop-blur-sm sm:px-14 sm:py-16">
-          <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">Concept</p>
-          <div className="mt-3 h-px w-12 bg-gold" />
+          <div className="flex items-center justify-center gap-4">
+            <span className="h-px w-10 bg-gold sm:w-16" aria-hidden />
+            <span className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">
+              Concept
+            </span>
+            <span className="h-px w-10 bg-gold sm:w-16" aria-hidden />
+          </div>
 
           <RevealText className="mt-8">
             <h2 className="text-pretty font-serif-jp text-2xl leading-[1.7] text-ink sm:text-3xl">

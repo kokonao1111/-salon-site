@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
 import { PhotoBackground } from "@/components/ui/PhotoBackground";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { backgroundPhotos } from "@/lib/backgroundPhotos";
 
 // 「効果を保証する」「必ず改善する」等の表現は使わない。
@@ -32,15 +33,14 @@ export function ImmersiveFirstVisit() {
         overlay="soft"
       />
 
-      <Container className="relative max-w-2xl">
-        <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">First Visit</p>
-        <div className="mt-3 h-px w-12 bg-gold" />
-        <h2 className="mt-6 font-serif-jp text-2xl text-ink sm:text-3xl">初めての方へ</h2>
-        <p className="mt-5 text-[15px] leading-loose text-forest/85">
-          初めてご来店いただく方にも安心してお過ごしいただけるよう、当サロンの考え方をご紹介します。
-        </p>
+      <Container className="relative max-w-2xl text-center">
+        <SectionIntro
+          eyebrow="First Visit"
+          title="初めての方へ"
+          description="初めてご来店いただく方にも安心してお過ごしいただけるよう、当サロンの考え方をご紹介します。"
+        />
 
-        <div className="mt-10 grid gap-8 sm:grid-cols-3">
+        <div className="mt-10 grid gap-8 text-left sm:grid-cols-3">
           {REASSURANCES.map((item) => (
             <div key={item.title} className="border-t border-gold/40 pt-4">
               <h3 className="font-serif-jp text-base text-ink">{item.title}</h3>
@@ -49,7 +49,7 @@ export function ImmersiveFirstVisit() {
           ))}
         </div>
 
-        <LinkButton href="/first-visit" variant="primary" className="mt-10">
+        <LinkButton href="/first-visit" variant="primary" className="mt-10 justify-center">
           初めての方へ（詳しく見る）
         </LinkButton>
       </Container>

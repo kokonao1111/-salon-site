@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 
 // 「効果を保証する」「必ず改善する」といった表現は使わず、確定しているコンセプト・体制の
 // 範囲内でのみ安心材料を伝える。
@@ -28,13 +29,9 @@ export function FirstVisitReassurance() {
   return (
     <section className="bg-warm-ivory py-16 sm:py-24">
       <Container>
-        <p className="font-serif-en text-xs tracking-[0.2em] text-gold uppercase">Peace of Mind</p>
-        <div className="mt-3 h-px w-12 bg-gold" />
-        <h2 className="mt-6 font-serif-jp text-2xl text-ink sm:text-3xl">
-          初めてでも安心してお過ごしいただくために
-        </h2>
+        <SectionIntro eyebrow="Peace of Mind" title="初めてでも安心してお過ごしいただくために" />
 
-        <div className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2">
+        <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2">
           {REASSURANCES.map((item) => (
             <div key={item.title} className="border-t border-gold/30 pt-5">
               <h3 className="font-serif-jp text-lg text-ink">{item.title}</h3>

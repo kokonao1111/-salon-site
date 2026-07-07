@@ -17,7 +17,7 @@ export function ConceptFull() {
     <section className="relative overflow-hidden py-24 sm:py-32">
       <PhotoBackground
         slot={backgroundPhotos.conceptBackground}
-        alt="志摩の周辺環境（準備中）"
+        alt="志摩の周辺環境（イメージ、店舗写真は準備中）"
         overlay="none"
       />
 

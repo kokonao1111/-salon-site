@@ -4,6 +4,12 @@
  * 落ち着いた単色（抽象模様・グラデーション装飾なし）で待機する。
  * 撮影後は該当スロットの src にパスを設定するだけで、そのセクションの
  * 背景写真として反映される（コンポーネント側の変更は不要）。
+ *
+ * hero / conceptBackground の2枠のみ、店舗撮影が完了するまでの「つなぎ」として
+ * 商用利用可能なストック写真（人物・建物を含まない自然風景のみ）を暫定的に設定している。
+ * 実店舗・スタッフ・店内を写したものではない。出典・ライセンスは
+ * `public/images/backgrounds/CREDITS.md` を参照。店舗写真の撮影が完了次第、
+ * これらも実写真に差し替えること。
  */
 export interface BackgroundPhotoSlot {
   /** READMEの撮影リストと対応させる識別子 */
@@ -20,32 +26,34 @@ export const backgroundPhotos: Record<
 > = {
   hero: {
     id: "bg-01-hero",
-    description: "メインビジュアル（店舗外観、またはエントランス）",
-    src: null,
+    description:
+      "メインビジュアル（店舗外観、またはエントランス）。現在は店舗撮影前のため、志摩の海岸風景の商用利用可能なストック写真を暫定使用（CREDITS.md参照）。",
+    src: "/images/backgrounds/hero-shima-coast.jpg",
   },
   conceptBackground: {
     id: "bg-02-concept",
-    description: "コンセプト背景（志摩の周辺環境・別荘地の雰囲気）",
-    src: null,
+    description:
+      "コンセプト背景（志摩の周辺環境・別荘地の雰囲気）。現在は店舗撮影前のため、松と入江の商用利用可能なストック写真を暫定使用（CREDITS.md参照）。",
+    src: "/images/backgrounds/concept-pine-bay.jpg",
   },
   firstVisit: {
     id: "bg-03-first-visit",
-    description: "サロン空間・受付エリア",
+    description: "サロン空間・受付エリア（店舗撮影後に差し替え）",
     src: null,
   },
   counseling: {
     id: "bg-04-counseling",
-    description: "カウンセリング風景",
+    description: "カウンセリング風景（店舗撮影後に差し替え）",
     src: null,
   },
   treatment: {
     id: "bg-05-treatment",
-    description: "施術室・トリートメントイメージ",
+    description: "施術室・トリートメントイメージ（店舗撮影後に差し替え）",
     src: null,
   },
   accessExterior: {
     id: "bg-06-access-exterior",
-    description: "外観・アクセス導線用イメージ",
+    description: "外観・アクセス導線用イメージ（店舗撮影後に差し替え）",
     src: null,
   },
 };

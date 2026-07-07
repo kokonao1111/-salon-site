@@ -22,7 +22,7 @@ export function Hero() {
     <section className="relative flex min-h-[92svh] items-end overflow-hidden">
       <PhotoBackground
         slot={backgroundPhotos.hero}
-        alt="志摩の隠れ家サロン（準備中）"
+        alt="志摩の海岸風景（イメージ、店舗写真は準備中）"
         overlay="ivory"
         priority
       />

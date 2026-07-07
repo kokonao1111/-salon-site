@@ -10,6 +10,7 @@ const variants = {
   "primary-light": `${base} bg-soft-white text-ink hover:bg-pearl`,
   outline: `${base} border border-ink/40 text-ink hover:border-ink hover:bg-ink hover:text-soft-white`,
   "outline-light": `${base} border border-soft-white/50 text-soft-white hover:border-soft-white hover:bg-soft-white hover:text-ink`,
+  gold: `${base} bg-gold text-soft-white hover:bg-forest`,
   ghost: `${base} px-0 py-0 text-ink hover:text-forest`,
 };
 

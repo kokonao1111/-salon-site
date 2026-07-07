@@ -13,6 +13,30 @@
 
 ---
 
+## 2026-07-07 の変更点（要約）
+
+参考サイト（https://www.louiserever.com/）のトップページ構成に寄せた再設計。参考サイトの画像・文言・ロゴ・デザインデータは一切使用していない。新しい料金・正式メニュー名・電話番号・LINE・スタッフ名・営業時間・定休日は今回も創作していない。
+
+- ナビゲーション（`src/lib/navigation.ts`）を、確定状況に関わらず常に同じ7項目（HOME／初めての方へ／コンセプト／メニュー／アクセス／お知らせ／ご予約）を表示する構成に変更。「ご予約」は押した先（`/contact`）で「予約方法は現在準備中です。公開までお待ちください」と案内し、仮の予約フォームは作らない。
+- `/menu` `/first-visit` `/news` `/contact` から `guardPageReadiness`（404化）を外し、常時閲覧可能にした（`noIndex` によるSEO非表示は維持）。`/service` `/staff` `/recruit` は今回のナビ対象外のため、従来通り404化を維持。
+- Home を全面再構成：Hero（写真差し替え前提の明るい仮ビジュアル）→ バナー帯（確定スケジュール＋予約準備状況）→ コンセプト全文（原稿を要約せず全文掲載）→ メニューカード（3分類・写真つき）→ 初めての方へ → LINE/SNS準備中 → アクセス（住所・電話状況・地図導線）。旧 `ConceptExcerpt`（原稿の一部のみ表示）・`FactsSection`・`OpeningSection`・`ServiceOverviewSection`・`FirstVisitPreviewSection`・`StaffPreviewSection` は新構成に統合・置換のため削除。
+- 配色を白・淡いベージュ・ゴールド・ブラウン基調に変更（`forest` トークンの色値を深緑からブラウンに変更。クラス名は維持）。Header内の暗色背景の全画面ナビ以外、Home・ご予約ページ・初めての方ページの黒背景（`bg-ink`）セクションは廃止し、白・ベージュ系に統一。
+- Header を「ロゴエリア／店舗説明の短いテキスト／電話番号エリア／予約ボタンエリア／横並びナビ」の構成に再設計（常時ソリッド表示、ヒーロー上の透過切り替えは廃止）。電話番号・予約導線は未確定の間、「電話番号準備中」「ご予約開始前」と表示し、仮番号・仮リンクは入れない。
+- 右下固定の「PAGE TOP」ボタンを新規追加（`PageTopButton.tsx`）。スクロールに応じて表示、ブラウン系の配色。
+
+### 今回新たに追加したUI文言（要確認・低リスク）
+
+- Header 店舗説明文「三重県志摩市の完全プライベート・トータルビューティーサロン」（Footerタグラインの短縮版）
+- 「電話番号準備中」「ご予約開始前」（Header）
+- バナー帯「ご予約はこちらから」／「予約方法は準備中」（`BannerStrip.tsx`。スケジュール自体は`siteConfig.schedule`の確定値をそのまま使用）
+- メニューカードの「詳細準備中・メニュー料金設定中」（`MenuCards.tsx`）
+- 初めての方へ「肌診断をもとに、一人ひとりに合わせたフェイシャル＆ボディプログラムを準備中です。」「詳細はオープン前に公開予定です。」（`FirstVisitCallout.tsx`。指示いただいた例文に語尾を整えたのみ）
+- LINE/SNS「LINE予約は準備中です。」「公式アカウント公開後に掲載予定です。」（`SnsLineSection.tsx`）
+- ご予約ページ「予約方法は現在準備中です。公開までお待ちください。」（`ContactInfo.tsx`。指示文をそのまま使用）
+- アクセス欄「電話番号：取得予定」（`AccessSection.tsx`）
+
+---
+
 ## 2026-07-06 の変更点（要約）
 
 新しいコピー・サービス・料金・設備・予約情報は創作していません。今回の変更は主に構造面です。
@@ -76,7 +100,7 @@
 |---|---|
 | `siteConfig.ts` | 店舗名の作業用仮称「志摩 プライベートビューティーサロン / SHIMA PRIVATE BEAUTY SALON」（店舗名確定前の暫定表示） |
 | `siteConfig.ts` | `seoDefaults`（meta description等） |
-| `siteConfig.ts` | `serviceCategories` の各 `summary` 文（Facial/Body/Skin Analysis/Counseling。Home非表示、/serviceページのみで使用） |
+| `siteConfig.ts` | `serviceCategories` の各 `summary` 文（Facial/Body/Skin Analysis/Counseling。2026-07-07よりHomeのメニューカード3分類にも表示、/serviceページでも使用） |
 | Footer | タグライン「三重県志摩市の別荘地に誕生する、完全プライベート・トータルビューティーサロン。」 |
 | `ReserveActions`（共通） | LINE・電話とも未確定時の統一案内「ご予約受付開始のお知らせは、準備が整い次第開業のご案内にてお伝えいたします。」 |
 | Serviceページ | ページ説明文、準備中案内文 |

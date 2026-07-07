@@ -37,16 +37,14 @@ export function Footer() {
                 </Link>
               </li>
             ))}
-            {reserveNav && (
-              <li>
-                <Link
-                  href={reserveNav.href}
-                  className="text-sm text-soft-white/90 hover:text-soft-white"
-                >
-                  {reserveNav.label}
-                </Link>
-              </li>
-            )}
+            <li>
+              <Link
+                href={reserveNav.href}
+                className="text-sm text-soft-white/90 hover:text-soft-white"
+              >
+                {reserveNav.label}
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -66,11 +64,9 @@ export function Footer() {
             Googleマップで経路を見る
           </a>
 
-          {reserveNav && (
-            <div className="mt-8">
-              <ReserveActions tone="light" />
-            </div>
-          )}
+          <div className="mt-8">
+            <ReserveActions tone="light" />
+          </div>
         </div>
       </Container>
 

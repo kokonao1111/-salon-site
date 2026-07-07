@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import { Hero } from "@/components/home/Hero";
-import { ConceptExcerpt } from "@/components/home/ConceptExcerpt";
-import { FactsSection } from "@/components/home/FactsSection";
-import { ServiceOverviewSection } from "@/components/home/ServiceOverviewSection";
-import { FirstVisitPreviewSection } from "@/components/home/FirstVisitPreviewSection";
-import { StaffPreviewSection } from "@/components/home/StaffPreviewSection";
+import { BannerStrip } from "@/components/home/BannerStrip";
+import { ConceptFull } from "@/components/home/ConceptFull";
+import { MenuCards } from "@/components/home/MenuCards";
+import { FirstVisitCallout } from "@/components/home/FirstVisitCallout";
+import { SnsLineSection } from "@/components/home/SnsLineSection";
 import { AccessSection } from "@/components/home/AccessSection";
-import { OpeningSection } from "@/components/home/OpeningSection";
 import { NewsPreview } from "@/components/home/NewsPreview";
 import { siteConfig } from "@/lib/siteConfig";
-import { isLiveStage } from "@/lib/siteStage";
 
 export const metadata: Metadata = buildMetadata({
   title: siteConfig.seoDefaults.defaultTitle,
@@ -19,33 +17,21 @@ export const metadata: Metadata = buildMetadata({
 });
 
 /**
- * Homeの構成はSITE_STAGEに応じて変える。
- *
- * - preview / prelaunch: 確定している事実（コンセプト原稿の抜粋・原稿内の3要素・住所・
- *   オープン予定日）だけを伝える簡潔な構成にする。未確定のサービス・メニュー・スタッフ・
- *   予約導線へは誘導しない。情報が少ないことを、大きな余白や抽象的な装飾で埋めない。
- * - live: 上記に加えて、サービス・初めての方・スタッフの各セクションが個別に表示される。
- *   ただし各セクションは pageReadiness / isApproved で実データが確定した場合にのみ描画され、
- *   未確定データのまま完成版の体裁を表示することはない
- *   （現時点ではすべて pending のため、live でもこの簡潔な構成のまま表示される）。
- *
- * 順序: Hero → Concept（原稿抜粋） → Facts（原稿内の3要素） → Access → Opening
+ * Homeは参考サイトの情報の流れ（ヘッダー→メインビジュアル→バナー→コンセプト→
+ * メニューカード→初めての方向け案内→LINE/SNS準備中→アクセス→フッター）に寄せた
+ * 構成にする。未確定の情報は、隠す・404にするのではなく、各セクション内で
+ * 正直に「準備中」と案内する。
  */
 export default function Home() {
   return (
     <>
       <Hero />
-      <ConceptExcerpt />
-      <FactsSection />
-      {isLiveStage && (
-        <>
-          <ServiceOverviewSection />
-          <FirstVisitPreviewSection />
-          <StaffPreviewSection />
-        </>
-      )}
+      <BannerStrip />
+      <ConceptFull />
+      <MenuCards />
+      <FirstVisitCallout />
+      <SnsLineSection />
       <AccessSection />
-      <OpeningSection />
       <NewsPreview />
     </>
   );

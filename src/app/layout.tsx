@@ -6,6 +6,7 @@ import { isLiveStage, assertLiveReadiness } from "@/lib/siteStage";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileFixedReserve } from "@/components/layout/MobileFixedReserve";
+import { PageTopButton } from "@/components/ui/PageTopButton";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { StructuredData } from "@/components/seo/StructuredData";
 import { isReservationReady } from "@/lib/reservation";
@@ -67,6 +68,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <MobileFixedReserve />
+        <PageTopButton />
       </body>
     </html>
   );

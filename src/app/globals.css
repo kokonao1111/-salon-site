@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 /*
- * ブランドカラー定義。
- * Muted Gold はコントラスト比の都合上、罫線・数字・大きめの見出し装飾にのみ使用し、
+ * ブランドカラー定義：白・淡いベージュ・ゴールド・ブラウンを基調にした
+ * 「美容サロンのホームページ」らしい配色（2026-07 改訂）。
+ * forest は名称を維持したまま、値を温かみのあるブラウンに変更している
+ * （既存の text-forest / bg-forest 等のクラスをそのまま「ブラウン」として使うため）。
  * 本文サイズの文字色としては ink / forest 系統を用いること（README 参照）。
  * ラグジュアリーブランドとしてのトーンを保つため、OSのダークモード設定に追従しない。
  */
@@ -10,7 +12,7 @@
   --color-warm-ivory: #f4f1ea;
   --color-soft-white: #fcfbf8;
   --color-ink: #171917;
-  --color-forest: #24332c;
+  --color-forest: #5c4033;
   --color-pearl: #c9c8c2;
   --color-gold: #a48a62;
 

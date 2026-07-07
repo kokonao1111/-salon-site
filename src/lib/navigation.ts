@@ -1,6 +1,3 @@
-import { pageReadiness } from "./pageReadiness";
-import { SITE_STAGE } from "./siteStage";
-
 export interface NavItem {
   label: string;
   labelEn: string;
@@ -8,46 +5,28 @@ export interface NavItem {
 }
 
 /**
- * 本番ナビゲーションに表示する項目。
+ * 本番ナビゲーションに表示する項目（2026-07 改訂）。
  *
- * - preview（クライアント・社内確認用）: 全ページに直接アクセスできるよう、
- *   pageReadiness に関わらずすべての項目を表示する。
- * - prelaunch / live: 確定情報が少ない段階では Home / Concept / Access / Opening Information を
- *   中心にし、サービス・メニュー・初めての方・お知らせ・スタッフは、それぞれの内容が
- *   確定・承認されるまでナビゲーションに並べない（pageReadiness で一元判定）。
- * Recruit は採用条件確定まで常に非表示（ルート自体は実装済み）。
- *
- * ご予約（reserveNav）だけは段階に関わらず、LINE・電話のいずれかが確定するまで
- * 常に非表示にする（予約できないリンクを一切出さないため）。
+ * 参考サイトの構成に合わせ、内容の確定・未確定に関わらず常に同じ7項目を表示する。
+ * 未確定のページ（メニュー・初めての方・お知らせ・ご予約）も、リンク先で
+ * 「現在準備中です」と正直に案内する方針に変更したため、ここでの出し分けは行わない。
+ * サービス・スタッフ・Recruitは今回のナビ構成の対象外（従来通りURLは実装済みだが導線には出さない）。
  */
-const alwaysVisibleNav: NavItem[] = [
-  { label: "コンセプト", labelEn: "Concept", href: "/concept" },
-  { label: "アクセス", labelEn: "Access", href: "/access" },
-  { label: "開業のご案内", labelEn: "Opening Information", href: "/opening" },
-];
-
-const conditionalNav: { item: NavItem; ready: boolean }[] = [
-  { item: { label: "サービス", labelEn: "Service", href: "/service" }, ready: pageReadiness.service },
-  { item: { label: "メニュー", labelEn: "Menu", href: "/menu" }, ready: pageReadiness.menu },
-  {
-    item: { label: "初めての方", labelEn: "First Visit", href: "/first-visit" },
-    ready: pageReadiness.firstVisit,
-  },
-  { item: { label: "スタッフ", labelEn: "Staff", href: "/staff" }, ready: pageReadiness.staff },
-  { item: { label: "お知らせ", labelEn: "News", href: "/news" }, ready: pageReadiness.news },
-];
-
-const isPreview = SITE_STAGE === "preview";
-
 export const primaryNav: NavItem[] = [
-  ...alwaysVisibleNav,
-  ...conditionalNav.filter((entry) => isPreview || entry.ready).map((entry) => entry.item),
+  { label: "HOME", labelEn: "Home", href: "/" },
+  { label: "初めての方へ", labelEn: "First Visit", href: "/first-visit" },
+  { label: "コンセプト", labelEn: "Concept", href: "/concept" },
+  { label: "メニュー", labelEn: "Menu", href: "/menu" },
+  { label: "アクセス", labelEn: "Access", href: "/access" },
+  { label: "お知らせ", labelEn: "News", href: "/news" },
 ];
 
-/** LINE・電話のいずれも未確定の間は null（呼び出し側で必ず非表示にする）。 */
-export const reserveNav: NavItem | null = pageReadiness.contact
-  ? { label: "ご予約", labelEn: "Reserve", href: "/contact" }
-  : null;
+/**
+ * ご予約は LINE・電話が未確定でも常に表示する。
+ * リンク先の /contact では、予約方法が現在準備中であることを正直に案内し、
+ * 仮の予約フォームは設置しない。
+ */
+export const reserveNav: NavItem = { label: "ご予約", labelEn: "Reserve", href: "/contact" };
 
 export const footerLegalNav: NavItem[] = [
   { label: "プライバシーポリシー", labelEn: "Privacy Policy", href: "/privacy" },

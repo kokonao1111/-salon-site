@@ -12,8 +12,7 @@ interface MobileMenuProps {
   currentPath: string;
 }
 
-// reserveNav は LINE・電話とも未確定の間 null になるため、その場合は一覧に含めない。
-const navItems: NavItem[] = [...primaryNav, ...(reserveNav ? [reserveNav] : [])];
+const navItems: NavItem[] = [...primaryNav, reserveNav];
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -64,7 +63,7 @@ export function MobileMenu({ open, onClose, currentPath }: MobileMenuProps) {
           role="dialog"
           aria-modal="true"
           aria-label="メインナビゲーション"
-          className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-ink text-soft-white"
+          className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-forest text-soft-white"
           initial={reduced ? { opacity: 1 } : { opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={reduced ? { opacity: 1 } : { opacity: 0 }}

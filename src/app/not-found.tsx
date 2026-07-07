@@ -3,7 +3,7 @@ import { LinkButton } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-[80svh] items-center bg-warm-ivory pt-24">
+    <section className="flex min-h-[70svh] items-center bg-warm-ivory">
       <Container className="text-center">
         <p className="font-serif-en text-6xl text-gold sm:text-8xl">404</p>
         <h1 className="mt-6 font-serif-jp text-2xl text-ink sm:text-3xl">

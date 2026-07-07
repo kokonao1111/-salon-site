@@ -55,7 +55,7 @@ export function ConceptFull() {
           </div>
 
           <div className="relative mt-14 sm:mt-20">
-            <div className="mx-auto max-w-md sm:max-w-xl">
+            <div className="mx-auto max-w-3xl sm:max-w-5xl">
               <div className="flex items-end gap-3 sm:gap-4">
                 <div className="relative w-[42%] sm:w-[34%]">
                   <div className="relative aspect-[5/4] w-full overflow-hidden">

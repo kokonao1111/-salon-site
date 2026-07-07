@@ -5,13 +5,15 @@ import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import type { BackgroundPhotoSlot } from "@/lib/backgroundPhotos";
 
-type Overlay = "none" | "ivory" | "soft" | "brown";
+type Overlay = "none" | "ivory" | "soft" | "brown" | "veil";
 
 const OVERLAY_CLASS: Record<Overlay, string> = {
   none: "",
   ivory: "bg-warm-ivory/55",
   soft: "bg-soft-white/60",
   brown: "bg-forest/40",
+  // 文字量が多く、写真の上に長く文字を乗せるセクション向けの、より不透明なレイヤー。
+  veil: "bg-warm-ivory/88",
 };
 
 interface PhotoBackgroundProps {

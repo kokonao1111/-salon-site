@@ -30,7 +30,7 @@ export function ImmersiveFirstVisit() {
       <PhotoBackground
         slot={backgroundPhotos.firstVisit}
         alt="サロン空間・受付イメージ（準備中）"
-        overlay="soft"
+        overlay="veil"
       />
 
       <Container className="relative max-w-2xl text-center">

@@ -12,7 +12,7 @@ export function FirstVisitHero() {
       <PhotoBackground
         slot={backgroundPhotos.firstVisit}
         alt="サロン空間・受付イメージ（準備中）"
-        overlay="ivory"
+        overlay="veil"
         priority
       />
 

@@ -33,8 +33,8 @@ export default function Home() {
         accent="A Quiet Retreat"
         title="喧騒から離れた、完全プライベートな時間へ。"
         description="志摩の隠れ家で、肌診断をもとにしたオーダーメイドのケアをご用意しています。"
-        href="/first-visit"
-        linkLabel="初めての方へ"
+        href="/access"
+        linkLabel="アクセスを見る"
       />
       <ImmersiveFirstVisit />
       <ImmersiveServices />

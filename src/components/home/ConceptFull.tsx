@@ -22,17 +22,9 @@ export function ConceptFull() {
       <div className="relative overflow-hidden">
         <div
           aria-hidden
-          className="absolute inset-0 sm:hidden"
+          className="absolute inset-0 w-full sm:w-[58%]"
           style={{
             background: "linear-gradient(160deg, var(--color-pearl) 0%, var(--color-warm-ivory) 100%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 hidden sm:block"
-          style={{
-            background: "linear-gradient(160deg, var(--color-pearl) 0%, var(--color-warm-ivory) 100%)",
-            clipPath: "polygon(0 0, 66% 0, 56% 45%, 62% 100%, 0 100%)",
           }}
         />
 
@@ -63,27 +55,51 @@ export function ConceptFull() {
           </div>
 
           <div className="relative mt-14 sm:mt-20">
-            <div className="relative aspect-[16/10] w-full overflow-hidden sm:w-[72%]">
-              <Image
-                src="/images/backgrounds/hero-shima-coast.jpg"
-                alt="志摩の海岸風景（イメージ、店舗写真は準備中）"
-                fill
-                sizes="(min-width: 640px) 72vw, 100vw"
-                className="object-cover"
-              />
+            <div className="flex items-end gap-4 sm:gap-6">
+              <div className="relative w-[42%] sm:w-[34%]">
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <Image
+                    src="/images/backgrounds/hero-shima-coast.jpg"
+                    alt="志摩の海岸風景（イメージ、店舗写真は準備中）"
+                    fill
+                    sizes="(min-width: 640px) 20vw, 42vw"
+                    className="object-cover"
+                  />
+                </div>
+
+                <div className="absolute -right-3 -bottom-3 aspect-square w-[46%] overflow-hidden border-4 border-soft-white shadow-xl sm:-right-4 sm:-bottom-4">
+                  <Image
+                    src="/images/backgrounds/concept-pine-bay.jpg"
+                    alt="志摩の松林と海のイメージ（準備中）"
+                    fill
+                    sizes="(min-width: 640px) 10vw, 20vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              <div className="relative aspect-[4/5] w-[50%] overflow-hidden sm:w-[56%]">
+                <Image
+                  src="/images/backgrounds/concept-bamboo-grove.jpg"
+                  alt="志摩の自然・竹林のイメージ（店舗写真は準備中）"
+                  fill
+                  sizes="(min-width: 640px) 34vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
 
-            <div className="absolute bottom-8 left-8 hidden flex-col items-center gap-3 sm:flex">
-              <span
-                className="font-serif-en text-[10px] tracking-[0.3em] text-soft-white"
-                style={{ writingMode: "vertical-rl" }}
-              >
-                SCROLL
-              </span>
-              <span className="h-10 w-px bg-soft-white/70" aria-hidden />
-            </div>
+            <div className="mt-8 flex items-center justify-end gap-4 pt-4 sm:mt-16 sm:justify-between sm:pt-0">
+              <div className="hidden flex-col items-center gap-3 sm:flex">
+                <span
+                  className="font-serif-en text-[10px] tracking-[0.3em] text-forest/60"
+                  style={{ writingMode: "vertical-rl" }}
+                >
+                  SCROLL
+                </span>
+                <span className="h-10 w-px bg-forest/30" aria-hidden />
+              </div>
 
-            <div className="absolute right-6 -bottom-6 sm:right-12">
               <LinkButton href="/menu" variant="gold">
                 メニューを見る
               </LinkButton>

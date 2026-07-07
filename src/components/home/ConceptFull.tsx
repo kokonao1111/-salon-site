@@ -55,37 +55,39 @@ export function ConceptFull() {
           </div>
 
           <div className="relative mt-14 sm:mt-20">
-            <div className="flex items-end gap-4 sm:gap-6">
-              <div className="relative w-[42%] sm:w-[34%]">
-                <div className="relative aspect-[4/5] w-full overflow-hidden">
+            <div className="mx-auto max-w-md sm:max-w-xl">
+              <div className="flex items-end gap-3 sm:gap-4">
+                <div className="relative w-[42%] sm:w-[34%]">
+                  <div className="relative aspect-[5/4] w-full overflow-hidden">
+                    <Image
+                      src="/images/backgrounds/hero-shima-coast.jpg"
+                      alt="志摩の海岸風景（イメージ、店舗写真は準備中）"
+                      fill
+                      sizes="(min-width: 640px) 16vw, 30vw"
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="absolute -right-3 -bottom-3 aspect-square w-[46%] overflow-hidden border-4 border-soft-white shadow-xl sm:-right-4 sm:-bottom-4">
+                    <Image
+                      src="/images/backgrounds/concept-pine-bay.jpg"
+                      alt="志摩の松林と海のイメージ（準備中）"
+                      fill
+                      sizes="(min-width: 640px) 8vw, 14vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                <div className="relative aspect-[5/4] w-[50%] overflow-hidden sm:w-[56%]">
                   <Image
-                    src="/images/backgrounds/hero-shima-coast.jpg"
-                    alt="志摩の海岸風景（イメージ、店舗写真は準備中）"
+                    src="/images/backgrounds/concept-bamboo-grove.jpg"
+                    alt="志摩の自然・竹林のイメージ（店舗写真は準備中）"
                     fill
-                    sizes="(min-width: 640px) 20vw, 42vw"
+                    sizes="(min-width: 640px) 27vw, 36vw"
                     className="object-cover"
                   />
                 </div>
-
-                <div className="absolute -right-3 -bottom-3 aspect-square w-[46%] overflow-hidden border-4 border-soft-white shadow-xl sm:-right-4 sm:-bottom-4">
-                  <Image
-                    src="/images/backgrounds/concept-pine-bay.jpg"
-                    alt="志摩の松林と海のイメージ（準備中）"
-                    fill
-                    sizes="(min-width: 640px) 10vw, 20vw"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-
-              <div className="relative aspect-[4/5] w-[50%] overflow-hidden sm:w-[56%]">
-                <Image
-                  src="/images/backgrounds/concept-bamboo-grove.jpg"
-                  alt="志摩の自然・竹林のイメージ（店舗写真は準備中）"
-                  fill
-                  sizes="(min-width: 640px) 34vw, 50vw"
-                  className="object-cover"
-                />
               </div>
             </div>
 

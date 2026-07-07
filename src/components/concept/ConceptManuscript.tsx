@@ -9,6 +9,11 @@ import { CONCEPT_COPY } from "@/lib/copy";
  * 【変更禁止原稿】を表示するセクション。
  * CONCEPT_COPY の内容・順序・行区切りは一切変更しない。
  * 段落間に写真を挟むのは編集レイアウトの都合であり、原稿の書き換えではない。
+ *
+ * 店舗の玄関・肌診断器そのものの実写真はまだ無いため、「これが実店舗の写真だ」と
+ * 誤解されるリスクを避け、志摩の雰囲気を伝える商用利用可能な自然写真（人物・建物を
+ * 含まない）を暫定使用している（出典：public/images/backgrounds/CREDITS.md）。
+ * 店舗撮影が完了次第、実際の玄関・肌診断器の写真に差し替えること。
  */
 export function ConceptManuscript() {
   const [titleBlock, soloBlock, closingBlock] = CONCEPT_COPY;
@@ -38,7 +43,8 @@ export function ConceptManuscript() {
       <RevealImage className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
         <PlaceholderImage
           spec={placeholderImages.entrance}
-          alt="玄関・アプローチ（準備中）"
+          src="/images/backgrounds/concept-bamboo-grove.jpg"
+          alt="志摩の雰囲気（イメージ、店舗の玄関写真は準備中）"
           className="w-full"
         />
       </RevealImage>
@@ -54,7 +60,8 @@ export function ConceptManuscript() {
       <RevealImage className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
         <PlaceholderImage
           spec={placeholderImages.skinAnalysisDevice}
-          alt="肌診断器（準備中）"
+          src="/images/backgrounds/hero-shima-coast.jpg"
+          alt="志摩の雰囲気（イメージ、肌診断器の写真は準備中）"
           className="w-full"
         />
       </RevealImage>

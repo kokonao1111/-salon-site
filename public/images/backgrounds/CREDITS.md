@@ -8,6 +8,7 @@
 |---|---|---|---|
 | `hero-shima-coast.jpg` | [Pexels #19200006](https://www.pexels.com/photo/seascape-and-a-rocky-coast-with-pine-trees-19200006/) | [Pexels License](https://www.pexels.com/license/)（商用利用可・クレジット表記不要） | 2026-07-07 |
 | `concept-pine-bay.jpg` | [Pexels #6397650](https://www.pexels.com/photo/pine-trees-growing-on-picturesque-rocky-seashore-6397650/) | [Pexels License](https://www.pexels.com/license/)（商用利用可・クレジット表記不要） | 2026-07-07 |
+| `concept-bamboo-grove.jpg` | [Pexels #33315875](https://www.pexels.com/photo/serene-bamboo-forest-in-arashiyama-kyoto-33315875/) | [Pexels License](https://www.pexels.com/license/)（商用利用可・クレジット表記不要） | 2026-07-08 |
 
 Pexels Licenseの主な条件（詳細は上記リンク参照）：
 - 商用・非商用を問わず無料で利用可能、クレジット表記は不要

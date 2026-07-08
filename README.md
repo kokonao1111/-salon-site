@@ -249,7 +249,8 @@ Staff / Recruit / Service / Menu / First Visit / News のナビ掲載・サイ�
 
 ---
 
-## 14. 公開前チェックリスト（Phase 4想定）
+## 14. 公開前チェックリスト
+
 
 - [ ] 店舗名・ロゴ確定、`siteConfig.brand.status` を `confirmed` に更新
 - [ ] 電話番号・LINE URL・営業時間・定休日の反映

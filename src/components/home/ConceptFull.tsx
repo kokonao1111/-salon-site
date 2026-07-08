@@ -47,7 +47,7 @@ export function ConceptFull() {
               <div className="mt-6 space-y-1.5">
                 {titleRest.map((line) => (
                   <RevealText key={line}>
-                    <p className="text-pretty text-[15px] leading-[1.9] text-forest/85">{line}</p>
+                    <p className="text-pretty text-[15px] leading-[1.9] text-forest">{line}</p>
                   </RevealText>
                 ))}
               </div>

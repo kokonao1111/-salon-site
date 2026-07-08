@@ -23,13 +23,13 @@ export function Hero() {
       <PhotoBackground
         slot={backgroundPhotos.hero}
         alt="志摩の海岸風景（イメージ、店舗写真は準備中）"
-        overlay="ivory"
+        overlay="veil"
         priority
       />
 
       <Container className="relative w-full pt-28 pb-16 sm:pb-20">
         <div className="max-w-[36rem]">
-          <p className="font-serif-en text-[11px] tracking-[0.24em] text-forest/60 uppercase">
+          <p className="font-serif-en text-[11px] tracking-[0.24em] text-forest/85 uppercase">
             Private beauty salon in Shima
           </p>
 
@@ -41,7 +41,7 @@ export function Hero() {
           </RevealText>
 
           <RevealText className="mt-5" delay={0.1}>
-            <p className="text-[13px] tracking-[0.04em] text-forest/70">
+            <p className="text-[13px] tracking-[0.04em] text-forest/85">
               三重県志摩市阿児町神明　・　{siteConfig.openingApprox}
             </p>
           </RevealText>

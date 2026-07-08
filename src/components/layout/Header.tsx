@@ -3,19 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, Phone } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { primaryNav, reserveNav } from "@/lib/navigation";
 import { siteConfig } from "@/lib/siteConfig";
 import { isConfirmed } from "@/lib/types";
 import { MobileMenu } from "./MobileMenu";
 
-const SHORT_DESCRIPTION = "三重県志摩市の完全プライベート・トータルビューティーサロン";
-
 /**
- * 参考サイトの構成（ロゴ・店舗説明文・電話番号エリア・予約ボタン・横並びナビ）に寄せた
- * 常時ソリッドなヘッダー。電話番号・予約導線は未確定である間、仮の番号やリンクを
- * 差し込まず、「電話番号準備中」「ご予約開始前」と正直に表示する。
+ * 参考サイトの構成（ロゴ・予約ボタン・横並びナビ）に寄せた常時ソリッドなヘッダー。
+ * 予約導線は未確定である間、仮のリンクを差し込まず「ご予約開始前」と正直に表示する。
  */
 export function Header() {
   const pathname = usePathname();
@@ -29,26 +26,6 @@ export function Header() {
 
   return (
     <>
-      <div className="hidden border-b border-ink/10 bg-warm-ivory sm:block">
-        <Container className="flex h-9 items-center justify-between text-xs text-forest/70">
-          <p className="truncate tracking-[0.02em]">{SHORT_DESCRIPTION}</p>
-          {isConfirmed(phone) ? (
-            <a
-              href={`tel:${phone.value}`}
-              className="flex shrink-0 items-center gap-1.5 hover:text-forest"
-            >
-              <Phone aria-hidden className="h-3.5 w-3.5" />
-              {phone.value}
-            </a>
-          ) : (
-            <span className="flex shrink-0 items-center gap-1.5 text-forest/50">
-              <Phone aria-hidden className="h-3.5 w-3.5" />
-              電話番号準備中
-            </span>
-          )}
-        </Container>
-      </div>
-
       <header className="sticky top-0 z-40 border-b border-ink/10 bg-soft-white/95 backdrop-blur-sm">
         <Container className="flex h-20 items-center justify-between gap-4 sm:h-24">
           {/*

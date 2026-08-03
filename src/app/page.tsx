@@ -5,6 +5,7 @@ import { ConceptFull } from "@/components/home/ConceptFull";
 import { AccentShowcase } from "@/components/ui/AccentShowcase";
 import { ImmersiveFirstVisit } from "@/components/home/ImmersiveFirstVisit";
 import { ImmersiveServices } from "@/components/home/ImmersiveServices";
+import { RecommendedPlans } from "@/components/home/RecommendedPlans";
 import { ImmersiveFlow } from "@/components/home/ImmersiveFlow";
 import { ImmersiveFaq } from "@/components/home/ImmersiveFaq";
 import { AccessSection } from "@/components/home/AccessSection";
@@ -38,6 +39,7 @@ export default function Home() {
       />
       <ImmersiveFirstVisit />
       <ImmersiveServices />
+      <RecommendedPlans />
       <ImmersiveFlow />
       <ImmersiveFaq />
       <AccessSection />
